@@ -1,0 +1,746 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --color-dark-slate: #2f4f4f;
+    --color-dark-slate-light: #4a7c7c;
+    --color-maroon: #660033;
+    --color-bg-light: #f8f9fa;
+    --color-text: #333;
+    --color-white: #ffffff;
+    --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family-base);
+    color: var(--color-text);
+    background-color: var(--color-white);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    color: var(--color-dark-slate);
+}
+
+a {
+    color: var(--color-maroon);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-dark-slate);
+    text-decoration: underline;
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Header --- */
+.site-header {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    background-color: var(--color-white);
+    z-index: 1000;
+}
+
+.header-top {
+    padding: 1rem 0;
+}
+
+.header-top-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 2rem;
+}
+
+.header-left .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    align-items: flex-end;
+    top: 16px;
+}
+
+.header-left .logo-image {
+    position: relative;
+    height: 70px;
+    width: auto;
+    top: 16px;
+}
+
+/* On mobile, hide the left-side logo block */
+.header-left {
+    display: none;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-maroon);
+    line-height: 1.2;
+    position: relative;
+    bottom: 10px;
+    top: 2px;
+}
+
+.header-right {
+    text-align: left;  /* Default alignment for mobile */
+}
+
+.contact-main-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-maroon);
+    font-style: italic;
+}
+
+.contact-sub-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-maroon);
+    margin-top: 0.25rem;
+}
+
+/* Styles for the new clickable phone number in the header */
+.header-phone-link {
+    font-size: 1rem;      /* Larger than the surrounding text */
+    font-weight: 700;     /* Bolder for emphasis */
+    color: var(--color-maroon); /* Ensures it stays maroon like the text around it */
+    text-decoration: none; /* Removes the default link underline */
+}
+
+/* The global a:hover rule will add an underline on hover, which is a nice touch */
+
+.header-nav-bar {
+    display: none; /* Hide the nav bar by default for mobile */
+    background-color: var(--color-dark-slate);
+}
+
+.main-nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.main-nav-list a {
+    display: block;
+    padding: .5rem 0;
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.main-nav-list a:hover {
+    color: var(--color-white);
+    text-decoration: underline;
+}
+
+.mobile-menu-toggle-wrapper {
+    display: block;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    justify-self: end;
+}
+
+.mobile-nav-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.mobile-nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-dark-slate);
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- Mobile Navigation Active State --- */
+.nav-active .header-nav-bar {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: #3a5c5c;
+}
+
+.nav-active .main-nav-list {
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+    padding: 1rem;
+}
+
+.nav-active .main-nav-list a {
+    padding: 0.75rem 0;
+    width: 100%;
+}
+
+.nav-active .mobile-nav-toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-active .mobile-nav-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-active .mobile-nav-toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
+    display: flex;
+    align-items: center; /* Vertically center content */
+    padding: 4rem 0 6rem 0; /* Simple padding for mobile. Adjust as needed. */
+    box-sizing: border-box;
+    color: var(--color-text);
+    background: linear-gradient(145deg, var(--color-dark-slate-light), var(--color-white) 50%);
+}
+
+.hero-gradient-overlay {
+    display: none; /* Hide the gradient on mobile */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(to right, 
+        white 25%, 
+        rgba(255, 255, 255, 0.95) 50%, 
+        rgba(255, 255, 255, 0) 75%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    text-align: left;
+}
+
+.hero-headline {
+    font-size: 2.2rem;
+    font-weight: 650;
+    line-height: 1.4;
+    color: var(--color-text);
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.hero-quote {
+    color: var(--color-maroon);
+    font-size: 1.4rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--color-maroon);
+}
+
+.hero-quote p {
+    margin: 0;
+}
+
+.hero-attribution {
+    font-size: 1.5rem;
+    display: block;
+    text-align: right;
+    font-style: italic;
+    color: var(--color-text);
+    font-weight: 600;
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Hero Buttons --- */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.button-primary, .button-secondary {
+    padding: 0.8rem 1.8rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.button-primary {
+    background-color: var(--color-dark-slate);
+    color: var(--color-white);
+    border: 2px solid var(--color-dark-slate);
+}
+
+.button-primary:hover {
+    background-color: var(--color-dark-slate-light);
+    border-color: var(--color-dark-slate-light);
+    color: var(--color-white); 
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: var(--color-dark-slate);
+    border: 2px solid var(--color-dark-slate);
+}
+
+.button-secondary:hover {
+    background-color: var(--color-dark-slate);
+    color: var(--color-white);
+}
+
+/* --- Questions Section --- */
+.questions-section {
+    /* Wrapper */
+}
+
+.cta-banner {
+    background-color: #262626;
+    color: var(--color-white);
+    text-align: center;
+    padding: 3rem 0 5rem 0;
+}
+
+.cta-content {
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
+    padding: 2rem 4rem; 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Style for the large decorative icon in the CTA box */
+.cta-main-icon {
+    width: 50px;
+    height: 50px;
+    fill: var(--color-maroon);
+    margin-bottom: 1rem;
+}
+
+/* --- Styles for the text inside the CTA box --- */
+.cta-text-block h3 {
+    font-size: 2.2rem;
+    font-weight: 600; /* Standard heading boldness */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.cta-text-block p {
+    font-size: 1.2rem;
+    font-weight: 400; /* Standard paragraph weight */
+    max-width: 650px;
+    margin: 0 auto; /* Centers the paragraph text */
+    opacity: 0.9;
+}
+
+/* Style for the introductory text in the CTA box */
+.cta-intro-text {
+    color: var(--color-maroon);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem; /* Creates space below it */
+}
+
+/* This is the new container for the side-by-side content */
+.cta-main {
+    display: flex;
+    flex-direction: column; /* On mobile, stack text and button */
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cta-main-text h3 {
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.cta-main-text p {
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin: 0; /* Remove auto margins */
+    opacity: 0.9;
+}
+
+.cta-button-wrapper {
+    margin-top: 0rem; /* Creates space above the button */
+}
+
+.questions-list-area {
+    padding: 5rem 0;
+    background-color: var(--color-bg-light);
+}
+
+.section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 3rem;
+    color: var(--color-maroon);
+}
+
+.questions-grid {
+    /* On mobile, it will be a single column by default */
+    column-count: 1;
+    column-gap: 2.5rem; /* This will be the space between columns on desktop */
+}
+
+.question-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    /* --- New Properties Below --- */
+    break-inside: avoid;   /* Prevents a question from being awkwardly split across columns */
+    margin-bottom: 1.5rem; /* This now controls the space between questions vertically */
+}
+
+.checkmark-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    fill: var(--color-dark-slate);
+    margin-top: 0.2rem;
+}
+
+/* Wrapper to stack question text and its footnote */
+.question-text-wrapper p {
+    margin: 0; /* Removes default paragraph margins for tight spacing */
+}
+
+/* The new, correct style for the footnote */
+.question-footnote {
+    /* --- Main Styles --- */
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--color-maroon);
+    margin-top: 0.5rem; /* Replaced padding-top with margin-top for better spacing */
+
+    /* --- Centering and Alignment Logic --- */
+    display: flex;
+    justify-content: center; /* This will center the icon-text-icon group */
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Create and style the warning icons on either side of the footnote */
+.question-footnote::before,
+.question-footnote::after {
+    content: ''; /* Psuedo-elements require a content property */
+    flex-shrink: 0; /* Prevents icons from shrinking */
+    width: 1em;  /* Sizes the icon relative to the text size */
+    height: 1em;
+    /* This is the SVG code for a warning triangle, URL-encoded for CSS */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23660033'%3e%3cpath d='M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z'/%3e%3c/svg%3e");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* --- New styles for the bottom of the Questions Section --- */
+.questions-footer {
+    text-align: center;
+    margin-top: 3rem; /* Space between the questions grid and this content */
+    border-top: 1px solid #ddd;
+    padding-top: 3rem;
+}
+
+.conclusion-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    
+    /* --- New properties to control width and centering --- */
+    max-width: 70ch;   /* Limits the line length to about 70 characters */
+    margin-left: auto;  /* These two lines center the now-narrower text block */
+    margin-right: auto;
+}
+
+.conclusion-cta {
+    display: flex;
+    flex-direction: column; /* Stack vertically on mobile */
+    align-items: center;
+    justify-content: center;
+    gap: 1rem; /* Space between text and button on mobile */
+}
+
+.cta-text-beside-button {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Styles for the inline CTA under a specific question */
+.inline-cta-wrapper {
+    text-align: center;
+    margin-top: 1rem; /* Adds space between the question text and the CTA */
+}
+/* Update this link to be a flex container for alignment */
+.inline-cta-link {
+    font-weight: bold;
+    color: var(--color-maroon);
+    text-decoration: none;
+    display: inline-flex; /* Use Flexbox */
+    align-items: center;  /* Vertically center icon and text */
+    gap: 0.5rem;          /* Space between icon and text */
+}
+
+/* Style for the new small inline icon */
+.cta-inline-icon {
+    width: 1.2em; /* Sizes the icon relative to the font size */
+    height: 1.2em;
+    fill: currentColor; /* Makes the icon inherit the maroon link color */
+}
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--color-dark-slate);
+    color: var(--color-white);
+    padding-top: 4rem;
+}
+
+.site-footer a {
+    color: var(--color-white);
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+.site-footer a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+    align-items: start;
+}
+
+.footer-column h4 {
+    color: var(--color-white);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.social-icons svg {
+    height: 28px;
+    width: 28px;
+    fill: var(--color-white);
+}
+
+#contact-info-column {
+    text-align: center;
+    padding-top: 1.6rem;
+}
+
+#contact-info-column p {
+    margin: 0.3rem 0;
+    line-height: 1.6;
+}
+
+.footer-hours {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-top: 1rem;
+}
+
+.partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.partner-logos img {
+    max-height: 40px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-bottom-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3rem;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.footer-bottom-bar p {
+    margin: 0;
+}
+
+
+/* --- Responsive Styles --- */
+@media (min-width: 992px) {
+
+    .header-left {
+        display: flex; /* It's a flex container itself */
+    }
+
+    .header-top-grid {
+        grid-template-columns: 1fr auto 1fr; 
+    }
+
+    .header-right {
+        grid-column: 3 / 4;
+        text-align: right; /* On desktop, align the text to the right */
+    }
+
+    .mobile-menu-toggle-wrapper {
+        display: none;
+    }
+
+    .header-nav-bar {
+        display: block;
+    }
+
+    .cta-text {
+        /* This text container doesn't need extra styles currently, 
+           but the class is here for future adjustments. */
+    }
+    
+    /* --- CTA Section Responsive Styles --- */
+    .cta-main {
+        flex-direction: row; /* Switch to side-by-side on desktop */
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .cta-main-text {
+        text-align: left; /* Align the text to the left in its column */
+    }
+
+    .cta-button-wrapper {
+        flex-shrink: 0; /* Prevents button from shrinking */
+        padding-left: 2rem; /* Ensures space between text and button */
+    }
+
+    /* --- New 3-Column CTA Layout for Desktop --- */
+    .cta-content {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        text-align: left; /* Override the mobile center-align */
+    }
+
+    .cta-main-icon {
+        flex-shrink: 0; /* Prevents icon from shrinking */
+    }
+
+    .cta-text-block {
+        flex-grow: 1; /* Allows text to take up the available middle space */
+        text-align: center; /* Keep the text itself centered in its column */
+    }
+
+    .cta-button-wrapper {
+        margin-top: 0; /* Remove the margin used for mobile stacking */
+        flex-shrink: 0; /* Prevents button from shrinking */
+    }
+
+    /* --- Hero Section Responsive Styles --- */
+    .hero-section {
+        align-items: flex-start; /* Align to top on desktop */
+        min-height: 90vh; /* Make it a tall banner ONLY on desktop */
+        padding: 2rem 0 7rem 0; /* Use larger, specific padding for desktop */
+        background-image: url('../images/CES_Homepage_Image.jpeg');
+        background-size: cover;
+        background-position: right center;
+    }
+
+    .hero-gradient-overlay {
+        display: block; /* Make the gradient reappear on desktop */
+    }
+
+    .hero-content {
+        max-width: 55%;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+    }
+
+    .hero-gradient-overlay {
+        display: block;
+    }
+    
+    .cta-content {
+        position: relative;
+        z-index: 5;
+        top: -6.5rem; 
+        margin-bottom: -6.5rem; /* Match the 'top' value to keep spacing correct */
+    }
+
+    .questions-grid {
+        column-count: 2; /* Switch to two columns on desktop */
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+        text-align: left;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    #contact-info-column {
+        text-align: center;
+    }
+    
+    .footer-column h4 {
+        text-align: center;
+    }
+
+    .partner-logos {
+        justify-content: flex-end;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero-headline {
+        font-size: 2.4rem;
+    }
+}
+
+/* This is a new media query for very wide screens */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1400px; /* Increase the max-width on very large displays */
+    }
+}
