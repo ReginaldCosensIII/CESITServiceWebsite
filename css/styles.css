@@ -678,7 +678,7 @@ a:hover {
         align-items: flex-start; /* Align to top on desktop */
         min-height: 90vh; /* Make it a tall banner ONLY on desktop */
         padding: 2rem 0 7rem 0; /* Use larger, specific padding for desktop */
-        background-image: url('../images/CES_Homepage_Image.jpeg');
+        background-image: url('../images/ces_homepage_image.jpeg');
         background-size: cover;
         background-position: right center;
     }
