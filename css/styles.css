@@ -276,7 +276,9 @@ a:hover {
 /* --- Hero Buttons --- */
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    flex-direction: column; /* Stacks the buttons vertically */
+    align-items: flex-start; /* Aligns them to the left */
+    gap: 1rem; /* The space between the buttons */
 }
 
 .button-primary, .button-secondary {
@@ -286,6 +288,7 @@ a:hover {
     text-decoration: none;
     text-align: center;
     transition: all 0.3s ease;
+    white-space: nowrap; /* Prevents the text inside from ever wrapping */
 }
 
 .button-primary {
@@ -326,67 +329,39 @@ a:hover {
 .cta-content {
     background-color: var(--color-bg-light);
     color: var(--color-text);
-    padding: 2rem 4rem; 
+    padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    text-align: center;
+
+    /* --- New Flexbox Layout for Stability --- */
+    display: flex;
+    flex-direction: column; /* Stack all items vertically */
+    align-items: center;    /* Center them horizontally */
+    text-align: center;     /* Center the text within them */
+    gap: 1.5rem;            /* Create guaranteed space between all items */
 }
 
-/* Style for the large decorative icon in the CTA box */
 .cta-main-icon {
     width: 50px;
     height: 50px;
     fill: var(--color-maroon);
-    margin-bottom: 1rem;
+    /* margin-bottom is no longer needed, gap handles it */
 }
 
-/* --- Styles for the text inside the CTA box --- */
 .cta-text-block h3 {
     font-size: 2.2rem;
-    font-weight: 600; /* Standard heading boldness */
-    margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin: 0; /* Remove default margins */
 }
 
 .cta-text-block p {
     font-size: 1.2rem;
-    font-weight: 400; /* Standard paragraph weight */
     max-width: 650px;
-    margin: 0 auto; /* Centers the paragraph text */
-    opacity: 0.9;
-}
-
-/* Style for the introductory text in the CTA box */
-.cta-intro-text {
-    color: var(--color-maroon);
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem; /* Creates space below it */
-}
-
-/* This is the new container for the side-by-side content */
-.cta-main {
-    display: flex;
-    flex-direction: column; /* On mobile, stack text and button */
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.cta-main-text h3 {
-    font-size: 2.2rem;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-}
-
-.cta-main-text p {
-    font-size: 1.2rem;
-    max-width: 650px;
-    margin: 0; /* Remove auto margins */
+    margin: 0.5rem auto 0 auto; /* Small margin above */
     opacity: 0.9;
 }
 
 .cta-button-wrapper {
-    margin-top: 0rem; /* Creates space above the button */
+    margin-top: 0; /* Remove top margin, gap property handles spacing */
 }
 
 .questions-list-area {
@@ -524,6 +499,12 @@ a:hover {
     padding-top: 4rem;
 }
 
+/* Hide social and partner columns on mobile */
+#social-column,
+#partners-column {
+    display: none;
+}
+
 .site-footer a {
     color: var(--color-white);
     opacity: 0.9;
@@ -571,6 +552,8 @@ a:hover {
 #contact-info-column p {
     margin: 0.3rem 0;
     line-height: 1.6;
+    font-size: 1.1rem; /* Increased font size */
+    font-weight: 600;   /* Added a semi-bold weight */
 }
 
 .footer-hours {
@@ -651,26 +634,28 @@ a:hover {
         padding-left: 2rem; /* Ensures space between text and button */
     }
 
-    /* --- New 3-Column CTA Layout for Desktop --- */
+    /* --- CTA Section Responsive Styles --- */
     .cta-content {
-        display: flex;
+        flex-direction: row; /* Switch back to a side-by-side layout */
+        justify-content: space-evenly;
         align-items: center;
         gap: 2rem;
-        text-align: left; /* Override the mobile center-align */
     }
 
     .cta-main-icon {
         flex-shrink: 0; /* Prevents icon from shrinking */
     }
 
+
     .cta-text-block {
-        flex-grow: 1; /* Allows text to take up the available middle space */
-        text-align: center; /* Keep the text itself centered in its column */
+        text-align: left; /* Align the text inside its column to the left */
     }
 
+    /* We need to re-add the wrapper to our media query as it was removed in the previous steps */
     .cta-button-wrapper {
-        margin-top: 0; /* Remove the margin used for mobile stacking */
-        flex-shrink: 0; /* Prevents button from shrinking */
+        margin-top: 0;
+        flex-shrink: 0;
+        padding-left: 2rem;
     }
 
     /* --- Hero Section Responsive Styles --- */
@@ -723,6 +708,12 @@ a:hover {
         text-align: center;
     }
     
+    /* Show the hidden footer columns on desktop */
+    #social-column,
+    #partners-column {
+        display: block;
+    }
+
     .footer-column h4 {
         text-align: center;
     }
