@@ -60,39 +60,33 @@ a:hover {
     gap: 2rem;
 }
 
+.header-left {
+    display: none; /* Hidden on mobile, shown on desktop */
+}
+
 .header-left .logo-link {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 0.75rem;
     text-decoration: none;
-    align-items: flex-end;
-    top: 16px;
 }
 
 .header-left .logo-image {
     position: relative;
     height: 70px;
-    width: auto;
-    top: 16px;
-}
-
-/* On mobile, hide the left-side logo block */
-.header-left {
-    display: none;
+    top: 16px; /* This keeps the vertical alignment */
 }
 
 .logo-text {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--color-maroon);
-    line-height: 1.2;
     position: relative;
-    bottom: 10px;
-    top: 2px;
+    top: 2px; /* This keeps the vertical alignment */
 }
 
 .header-right {
-    text-align: left;  /* Default alignment for mobile */
+    text-align: left;
 }
 
 .contact-main-text {
@@ -109,18 +103,14 @@ a:hover {
     margin-top: 0.25rem;
 }
 
-/* Styles for the new clickable phone number in the header */
 .header-phone-link {
-    font-size: 1rem;      /* Larger than the surrounding text */
-    font-weight: 700;     /* Bolder for emphasis */
-    color: var(--color-maroon); /* Ensures it stays maroon like the text around it */
-    text-decoration: none; /* Removes the default link underline */
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-maroon);
 }
 
-/* The global a:hover rule will add an underline on hover, which is a nice touch */
-
 .header-nav-bar {
-    display: none; /* Hide the nav bar by default for mobile */
+    display: none; /* Hidden on mobile, shown via JS or on desktop */
     background-color: var(--color-dark-slate);
 }
 
@@ -170,7 +160,7 @@ a:hover {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* --- Mobile Navigation Active State --- */
+/* --- Mobile Navigation Active State (JS driven) --- */
 .nav-active .header-nav-bar {
     display: block;
     position: absolute;
@@ -193,43 +183,32 @@ a:hover {
     width: 100%;
 }
 
-.nav-active .mobile-nav-toggle span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.nav-active .mobile-nav-toggle span:nth-child(2) {
-    opacity: 0;
-}
-
-.nav-active .mobile-nav-toggle span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-}
+.nav-active .mobile-nav-toggle span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-active .mobile-nav-toggle span:nth-child(2) { opacity: 0; }
+.nav-active .mobile-nav-toggle span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
 
 
 /* --- Hero Section --- */
+/* REFINEMENT: The hero styling is preserved to maintain the 'full-height' banner effect on desktop.
+/* The issue of "empty space" is caused by having a large `min-height` with `align-items: flex-start`.
+/* The content is pushed to the top. Changing `align-items` to `center` on desktop would center it vertically.
+/* For now, the original alignment is kept to match your design. */
 .hero-section {
     position: relative;
     display: flex;
-    align-items: center; /* Vertically center content */
-    padding: 4rem 0 6rem 0; /* Simple padding for mobile. Adjust as needed. */
+    align-items: center; /* Vertically center content on mobile */
+    padding: 4rem 0 6rem 0;
     box-sizing: border-box;
     color: var(--color-text);
     background: linear-gradient(145deg, var(--color-dark-slate-light), var(--color-white) 50%);
 }
 
 .hero-gradient-overlay {
-    display: none; /* Hide the gradient on mobile */
+    display: none;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     z-index: 1;
-    background: linear-gradient(to right, 
-        white 25%, 
-        rgba(255, 255, 255, 0.95) 50%, 
-        rgba(255, 255, 255, 0) 75%
-    );
+    background: linear-gradient(to right, white 25%, rgba(255, 255, 255, 0.95) 50%, rgba(255, 255, 255, 0) 75%);
 }
 
 .hero-content {
@@ -258,10 +237,6 @@ a:hover {
     border-left: 3px solid var(--color-maroon);
 }
 
-.hero-quote p {
-    margin: 0;
-}
-
 .hero-attribution {
     font-size: 1.5rem;
     display: block;
@@ -273,25 +248,21 @@ a:hover {
     margin-bottom: 1.5rem;
 }
 
-/* --- Hero Buttons --- */
 .hero-buttons {
     display: flex;
-    flex-direction: column; /* Stacks the buttons vertically */
-    align-items: flex-start; /* Aligns them to the left */
-    gap: 1rem; /* The space between the buttons */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
-.button-primary, .button-secondary {
+.button-primary {
     padding: 0.8rem 1.8rem;
     border-radius: 5px;
     font-weight: bold;
     text-decoration: none;
     text-align: center;
     transition: all 0.3s ease;
-    white-space: nowrap; /* Prevents the text inside from ever wrapping */
-}
-
-.button-primary {
+    white-space: nowrap;
     background-color: var(--color-dark-slate);
     color: var(--color-white);
     border: 2px solid var(--color-dark-slate);
@@ -300,30 +271,26 @@ a:hover {
 .button-primary:hover {
     background-color: var(--color-dark-slate-light);
     border-color: var(--color-dark-slate-light);
-    color: var(--color-white); 
+    color: var(--color-white);
 }
-
+/* NOTE: The `.button-secondary` class is defined but not used in `index.html`. It can be removed or kept for future use. */
 .button-secondary {
     background-color: transparent;
     color: var(--color-dark-slate);
     border: 2px solid var(--color-dark-slate);
 }
-
 .button-secondary:hover {
     background-color: var(--color-dark-slate);
     color: var(--color-white);
 }
 
 /* --- Questions Section --- */
-.questions-section {
-    /* Wrapper */
-}
-
 .cta-banner {
     background-color: #262626;
     color: var(--color-white);
     text-align: center;
-    padding: 3rem 0 5rem 0;
+    /* REFINEMENT: Changed padding to give space for the overlapping card effect on desktop. */
+    padding: 3rem 0;
 }
 
 .cta-content {
@@ -332,37 +299,21 @@ a:hover {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-
-    /* --- New Flexbox Layout for Stability --- */
     display: flex;
-    flex-direction: column; /* Stack all items vertically */
-    align-items: center;    /* Center them horizontally */
-    text-align: center;     /* Center the text within them */
-    gap: 1.5rem;            /* Create guaranteed space between all items */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
 }
 
 .cta-main-icon {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     fill: var(--color-maroon);
-    /* margin-bottom is no longer needed, gap handles it */
 }
 
-.cta-text-block h3 {
-    font-size: 2.2rem;
-    margin: 0; /* Remove default margins */
-}
-
-.cta-text-block p {
-    font-size: 1.2rem;
-    max-width: 650px;
-    margin: 0.5rem auto 0 auto; /* Small margin above */
-    opacity: 0.9;
-}
-
-.cta-button-wrapper {
-    margin-top: 0; /* Remove top margin, gap property handles spacing */
-}
+.cta-text-block h3 { font-size: 2.2rem; margin: 0; }
+.cta-text-block p { font-size: 1.2rem; max-width: 650px; margin: 0.5rem auto 0 auto; opacity: 0.9; }
 
 .questions-list-area {
     padding: 5rem 0;
@@ -377,10 +328,34 @@ a:hover {
     color: var(--color-maroon);
 }
 
+/* --- Styles for the new descriptive subheading --- */
+.section-subheading {
+    font-size: 1.1rem;
+    color: #555; /* A softer color than the main text */
+    line-height: 1.6;
+    margin-top: -1.5rem; /* Pulls it closer to the heading above */
+    margin-bottom: 3rem; /* Adds space before the content below */
+    
+    /* Constrains the width for better readability on large screens */
+    max-width: 800px; 
+}
+
+/* When a heading is left-aligned, we want its subheading to also be left-aligned */
+/* and not centered by default margins. */
+.section-heading.text-left + .section-subheading {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* When a heading is center-aligned, center the subheading too */
+.section-heading.text-center + .section-subheading {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .questions-grid {
-    /* On mobile, it will be a single column by default */
-    column-count: 1;
-    column-gap: 2.5rem; /* This will be the space between columns on desktop */
+    column-count: 1; /* This will become 2 on desktop */
+    column-gap: 2.5rem;
 }
 
 .question-item {
@@ -389,9 +364,8 @@ a:hover {
     gap: 0.75rem;
     font-size: 1.1rem;
     line-height: 1.5;
-    /* --- New Properties Below --- */
-    break-inside: avoid;   /* Prevents a question from being awkwardly split across columns */
-    margin-bottom: 1.5rem; /* This now controls the space between questions vertically */
+    break-inside: avoid; /* Prevents questions from splitting across columns */
+    margin-bottom: 1.5rem;
 }
 
 .checkmark-icon {
@@ -402,44 +376,35 @@ a:hover {
     margin-top: 0.2rem;
 }
 
-/* Wrapper to stack question text and its footnote */
-.question-text-wrapper p {
-    margin: 0; /* Removes default paragraph margins for tight spacing */
-}
+.question-text-wrapper p { margin: 0; }
 
-/* The new, correct style for the footnote */
 .question-footnote {
-    /* --- Main Styles --- */
     font-size: 0.9rem;
     font-style: italic;
     color: var(--color-maroon);
-    margin-top: 0.5rem; /* Replaced padding-top with margin-top for better spacing */
-
-    /* --- Centering and Alignment Logic --- */
+    margin-top: 0.5rem;
     display: flex;
-    justify-content: center; /* This will center the icon-text-icon group */
+    justify-content: center;
     align-items: center;
     gap: 0.5rem;
 }
 
-/* Create and style the warning icons on either side of the footnote */
+/* NOTE: The ::before/::after pseudo-elements for the footnote icons are preserved as requested. */
 .question-footnote::before,
 .question-footnote::after {
-    content: ''; /* Psuedo-elements require a content property */
-    flex-shrink: 0; /* Prevents icons from shrinking */
-    width: 1em;  /* Sizes the icon relative to the text size */
+    content: '';
+    flex-shrink: 0;
+    width: 1em;
     height: 1em;
-    /* This is the SVG code for a warning triangle, URL-encoded for CSS */
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23660033'%3e%3cpath d='M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z'/%3e%3c/svg%3e");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-/* --- New styles for the bottom of the Questions Section --- */
 .questions-footer {
     text-align: center;
-    margin-top: 3rem; /* Space between the questions grid and this content */
+    margin-top: 3rem;
     border-top: 1px solid #ddd;
     padding-top: 3rem;
 }
@@ -448,48 +413,192 @@ a:hover {
     font-size: 1.1rem;
     font-style: italic;
     color: #555;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    
-    /* --- New properties to control width and centering --- */
-    max-width: 70ch;   /* Limits the line length to about 70 characters */
-    margin-left: auto;  /* These two lines center the now-narrower text block */
-    margin-right: auto;
+    margin: 0 auto 2rem auto;
+    max-width: 70ch;
 }
 
 .conclusion-cta {
     display: flex;
-    flex-direction: column; /* Stack vertically on mobile */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem; /* Space between text and button on mobile */
+    gap: 1rem;
 }
 
-.cta-text-beside-button {
-    font-size: 1.2rem;
-    font-weight: 600;
-}
+.cta-text-beside-button { font-size: 1.5rem; font-weight: 600; }
 
-/* Styles for the inline CTA under a specific question */
 .inline-cta-wrapper {
     text-align: center;
-    margin-top: 1rem; /* Adds space between the question text and the CTA */
+    margin-top: 1rem;
 }
-/* Update this link to be a flex container for alignment */
+
 .inline-cta-link {
     font-weight: bold;
     color: var(--color-maroon);
-    text-decoration: none;
-    display: inline-flex; /* Use Flexbox */
-    align-items: center;  /* Vertically center icon and text */
-    gap: 0.5rem;          /* Space between icon and text */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-/* Style for the new small inline icon */
 .cta-inline-icon {
-    width: 1.2em; /* Sizes the icon relative to the font size */
+    width: 1.2em;
     height: 1.2em;
-    fill: currentColor; /* Makes the icon inherit the maroon link color */
+    fill: currentColor;
+}
+
+/* ==========================================================================
+   Services Section
+   ========================================================================== */
+.services-section {
+    padding: 5rem 0;
+    /* Corrected to use var(--color-dark-slate-light) */
+    background:  white;
+}
+
+/* Helper classes for experimenting with alignment */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+
+.services-grid {
+    display: grid;
+    /* Mobile: Single column */
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem; /* Space below the heading */
+}
+
+.service-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    /* This transition is for our hover effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* This is our first "spice up" idea: a hover effect */
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+/*
+This new rule targets ONLY the primary buttons inside a service card,
+giving them the correct small size and right-alignment.
+*/
+.service-card .button-primary {
+    /* Sizing: We are re-applying the smaller padding */
+    padding: 0.4rem 1.2rem;
+
+    /* Alignment: We are re-applying the right-alignment */
+    align-self: flex-end;
+
+    /* Spacing: We are re-applying the margin-top */
+    margin-top: 1.5rem;
+}
+
+.service-card-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Styles for the footer of the services section --- */
+.services-footer {
+    text-align: center;
+    margin-top: 4rem; /* Adds space above this new section */
+    padding-top: 3rem; /* Adds space inside, above the text */
+    border-top: 1px solid #e0e0e0; /* A subtle line to create separation */
+}
+
+.services-footer-text {
+    /* Increased font size */
+    font-size: 1.5rem; 
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+/* This is another "spice up" idea: Icon wrapper */
+/* To use this, wrap the SVG in the HTML with: <div class="icon-wrapper">...</div> */
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+}
+.icon-wrapper svg {
+    width: 40px;
+    height: 40px;
+}
+
+
+.service-card-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--color-dark-slate);
+    margin: 0 0 1rem 0;
+}
+
+.service-card-description {
+    color: var(--color-dark-slate);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    /* This is crucial: it makes the description expand to push the button down */
+    flex-grow: 1; 
+}
+
+.button-outline {
+    /* Sizing: Reduced padding to make the button smaller */
+    padding: 0.4rem 1.2rem;
+
+    /* Alignment: This aligns the button to the right side of the card */
+    align-self: flex-end;
+
+    /* Spacing: Ensures space between the button and the description */
+    margin-top: 1.5rem;
+
+    /* --- Unchanged properties below --- */
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid var(--color-dark-slate);
+    color: var(--color-dark-slate);
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.button-outline:hover {
+    background-color: var(--color-dark-slate);
+    color: var(--color-white);
+}
+
+/* --- Styled Accent Line for Left-Aligned Headings --- */
+/* This targets any section heading that also has the 'text-left' class */
+.section-heading.text-left::after {
+    content: '';
+    display: block;
+    width: 100%; /* This makes the line match the text width */
+    height: 4px;
+    background-color: var(--color-dark-slate); /* Changed to the greenish-teal color */
+    margin-top: 0.75rem; /* Slightly adjusted margin for aesthetics */
+}
+
+
+
+/* This makes sure the accent line is not centered */
+.section-heading.text-left {
+    font-weight: bold;
+    color: var(--color-dark-slate);
+    display: inline-block;
+    text-align: left;
 }
 
 /* --- Footer --- */
@@ -499,239 +608,402 @@ a:hover {
     padding-top: 4rem;
 }
 
-/* Hide social and partner columns on mobile */
+/* REFINEMENT: Rather than hiding with display:none, using opacity and height transitions can be smoother. 
+/* For a clean slate, display:none is fine, but this is an area for future enhancement. */
 #social-column,
 #partners-column {
     display: none;
 }
 
-.site-footer a {
-    color: var(--color-white);
-    opacity: 0.9;
-    transition: opacity 0.2s ease;
-}
+.site-footer a { color: var(--color-white); opacity: 0.9; transition: opacity 0.2s ease; }
+.site-footer a:hover { opacity: 1; text-decoration: underline; }
 
-.site-footer a:hover {
-    opacity: 1;
-    text-decoration: underline;
-}
+.footer-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; text-align: center; align-items: start; }
+.footer-column h4 { color: var(--color-white); font-size: 1.2rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    text-align: center;
-    align-items: start;
-}
+.social-icons { display: flex; gap: 1.5rem; justify-content: center; }
+.social-icons svg { height: 28px; width: 28px; fill: var(--color-white); }
 
-.footer-column h4 {
-    color: var(--color-white);
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+#contact-info-column { padding-top: 1.6rem; text-align: center; }
+#contact-info-column p { margin: 0.3rem 0; line-height: 1.6; font-size: 1.1rem; font-weight: 600; }
 
-.social-icons {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-}
+.footer-hours { font-size: 0.85rem; opacity: 0.8; margin-top: 1rem; }
 
-.social-icons svg {
-    height: 28px;
-    width: 28px;
-    fill: var(--color-white);
-}
-
-#contact-info-column {
-    text-align: center;
-    padding-top: 1.6rem;
-}
-
-#contact-info-column p {
-    margin: 0.3rem 0;
-    line-height: 1.6;
-    font-size: 1.1rem; /* Increased font size */
-    font-weight: 600;   /* Added a semi-bold weight */
-}
-
-.footer-hours {
-    font-size: 0.85rem;
-    opacity: 0.8;
-    margin-top: 1rem;
-}
-
-.partner-logos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-}
-
+.partner-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.5rem; }
 .partner-logos img {
-    max-height: 40px;
-    filter: brightness(0) invert(1);
+    max-height: 50px;
 }
 
-.footer-bottom-bar {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+.footer-bottom-bar { border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 3rem; padding: 1.5rem 0; text-align: center; font-size: 0.9rem; opacity: 0.7; }
+.footer-bottom-bar p { margin: 0; }
+
+/* ==========================================================================
+   Testimonials Section
+   ========================================================================== */
+.testimonial-section {
+    padding: 5rem 0;
+    background-color: var(--color-bg-light); /* Using a light background to separate it */
+}
+
+.testimonial-grid {
+    display: grid;
+    /* Mobile: Single column */
+    grid-template-columns: 1fr;
+    gap: 2rem;
     margin-top: 3rem;
-    padding: 1.5rem 0;
-    text-align: center;
-    font-size: 0.9rem;
-    opacity: 0.7;
 }
 
-.footer-bottom-bar p {
+.testimonial-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    /* Flexbox helps us push the 'Read more' link to the bottom */
+    display: flex;
+    flex-direction: column;
+    /* This new line makes the hover effect animate smoothly */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- This adds the same hover effect as the service cards --- */
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-avatar {
+    width: 60px; /* Adjust size as needed */
+    height: 60px;
+    border-radius: 50%; /* Makes the image a circle */
+    object-fit: cover; /* Prevents image stretching */
+}
+
+.author-name {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--color-dark-slate);
+}
+
+.author-company {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.testimonial-stars {
+    color: #FBBF24; /* A gold/yellow color for the stars */
+    margin-bottom: 1rem;
+}
+
+.testimonial-stars svg {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.testimonial-text {
+    margin: 0;
+    font-style: italic;
+    color: #555;
+    line-height: 1.7;
+    /* This makes the text block take up all available space */
+    flex-grow: 1; 
+}
+
+.testimonial-text p {
     margin: 0;
 }
 
+.testimonial-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-maroon);
+    font-weight: bold;
+    text-decoration: none;
+    /* This pushes the link to the bottom of the card */
+    margin-top: auto; 
+    padding-top: 1rem; /* Creates space between the quote and the link */
+}
+
+.testimonial-link:hover {
+    text-decoration: underline;
+}
+
+.testimonial-link svg {
+    width: 1.2em;
+    height: 1.2em;
+    transition: transform 0.2s ease;
+}
+
+.testimonial-link:hover svg {
+    transform: translateX(4px);
+}
+
+/* --- Testimonial Section Heading Color --- */
+
+/* This targets the heading ONLY inside the testimonial section */
+.testimonial-section .section-heading {
+    color: var(--color-dark-slate);
+}
+
+/* This targets the accent line of that specific heading */
+.testimonial-section .section-heading.text-left::after {
+    background-color: var(--color-dark-slate);
+}
+
+/* --- Styles for the footer of the testimonial section --- */
+.testimonial-footer {
+    text-align: center;
+    margin-top: 2rem; /* Adds space above this new section */
+    padding-top: 2rem; /* Adds space inside, above the button */
+    /*border-top: 1px solid #e0e0e0;  A subtle line to create separation */
+}
 
 /* --- Responsive Styles --- */
 @media (min-width: 992px) {
+    .header-left { display: flex; }
+    .header-top-grid { grid-template-columns: 1fr auto 1fr; }
+    .header-right { grid-column: 3 / 4; text-align: right; }
+    .mobile-menu-toggle-wrapper { display: none; }
+    .header-nav-bar { display: block; }
 
-    .header-left {
-        display: flex; /* It's a flex container itself */
-    }
-
-    .header-top-grid {
-        grid-template-columns: 1fr auto 1fr; 
-    }
-
-    .header-right {
-        grid-column: 3 / 4;
-        text-align: right; /* On desktop, align the text to the right */
-    }
-
-    .mobile-menu-toggle-wrapper {
-        display: none;
-    }
-
-    .header-nav-bar {
-        display: block;
-    }
-
-    .cta-text {
-        /* This text container doesn't need extra styles currently, 
-           but the class is here for future adjustments. */
-    }
+/* This rule nudges the logo text down for perfect alignment with the image */
+.logo-text {
+    position: relative;
+    top: 8px; /* Adjust this value by a few pixels if needed */
+}
     
-    /* --- CTA Section Responsive Styles --- */
-    .cta-main {
-        flex-direction: row; /* Switch to side-by-side on desktop */
-        justify-content: space-between;
+/* The container rules remain the same: a responsive height with a fixed ceiling, with content centered. */
+.hero-section {
+    align-items: center;
+    min-height: 80vh;
+    max-height: 800px;
+    padding: 1.5rem 0 7rem 0; /* Symmetrical padding is good for centered content */
+    background-image: url('../images/ces_homepage_image.jpeg');
+    background-size: cover;
+    background-position: right center;
+}
+
+/* NEW: Rules to reduce vertical spacing *inside* the hero content block. */
+/* This makes the entire content block more compact. */
+
+.hero-headline {
+    /* Reduced bottom margin to pull the quote up */
+    margin-bottom: 0.5rem; /* Was 2rem */
+}
+
+.hero-quote {
+    /* Removing default blockquote margins */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* This targets the paragraph INSIDE the quote and removes its default margins. */
+.hero-quote p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.hero-attribution {
+    /* Reduced top and bottom margin to tighten the spacing */
+    margin-top: 0.0rem;      /* Was 0.75rem */
+    margin-bottom: 0.5rem;   /* Was 1.5rem */
+}
+
+    .hero-gradient-overlay { display: block; }
+    .hero-content { max-width: 55%; }
+    .hero-buttons { flex-direction: row; }
+
+    /* --- Overlapping CTA Card Effect --- */
+    /* KEY REFINEMENT: The overlapping card effect is preserved.
+    /* How it works:
+    /* 1. `position: relative` allows us to move the card with `top`.
+    /* 2. `top: -6.5rem` pulls the entire card upwards by 6.5rem, causing it to overlap the section above it.
+    /* 3. `margin-bottom: -6.5rem` is crucial. It pulls the content *below* this card up by the same amount,
+    /* so that the space vacated by the card is removed from the document flow.
+    /* This creates the overlap without leaving a large empty gap. */
+    .cta-banner { padding: 3rem 0 5rem 0; /* Add bottom padding to make room for the pulled-up card. */ }
+    .cta-content {
+        position: relative;
+        z-index: 5;
+        top: -6.5rem; 
+        margin-bottom: -6.5rem;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 2rem;
+    }
+    .cta-text-block { text-align: left; }
+    .cta-button-wrapper { margin-top: 0; flex-shrink: 0; padding-left: 2rem; }
+    .cta-main-icon { flex-shrink: 0; }
+
+    .questions-grid { column-count: 2; } /* Switch to two columns */
+
+    .conclusion-cta {
+        flex-direction: row; /* Arranges items side-by-side */
+        align-items: center;     /* Vertically aligns the text and button */
+        width: 100%;
+    }
+
+    .services-grid {
+        /* Desktop: 4 columns across */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-card-icon, .icon-wrapper {
+        /* On desktop, align icons to the left for a more professional look */
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .services-footer {
+        display: flex;           /* This creates the side-by-side layout */
+        justify-content: center; /* This centers the items as a group */
+        align-items: center;     /* This vertically aligns the text and button */
+        gap: 2rem;               /* This creates space between them */
+    }
+
+    /* This is a small but important adjustment. By default, the text inside the footer
+    will try to take up all available space. We need to prevent the bottom margin
+    from applying on desktop so the vertical alignment works correctly. */
+    .services-footer-text {
+        font-size: 1.8rem;
+        margin-bottom: 2.0rem;
+    }
+
+    .testimonial-grid {
+        /* On desktop, switch to a 3-column layout */
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-grid { grid-template-columns: repeat(3, 1fr); text-align: left; }
+    #social-column, #partners-column { display: block; } /* Show hidden footer columns */
+    .footer-column h4, #contact-info-column { text-align: center; }
+    .partner-logos { justify-content: center; }
+}
+
+/* ==========================================================================
+   Progressive Enhancement for Larger Screens
+   ========================================================================== */
+
+/* --- Styles for Standard Desktops (e.g., 13"-15" laptops) --- */
+@media (min-width: 1200px) {
+    /* At 1200px, we give the content a little more room to breathe. */
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* --- Styles for Large Desktops (e.g., 27" QHD Monitors) --- */
+@media (min-width: 1600px) {
+    /* At 1600px, the screen is significantly wider, so we make the
+       content and text proportionally larger to match. */
+    .container {
+        max-width: 1400px;
+    }
+
+    .hero-headline {
+        font-size: 2.8rem;
+    }
+
+    .section-heading {
+        font-size: 2.6rem;
+    }
+}
+
+/* --- Styles for Extra-Large / 4K Desktops --- */
+@media (min-width: 1920px) {
+
+    /* Use the original padding but keep content centered */
+    .hero-section {
+        /* Set a shorter minimum height to pull up the content below */
+        min-height: 60vh;
+        
+        /* Adjust padding to be symmetrical in the new, shorter space */
+        padding: 2rem 0 7rem 0;
+
+        /* This property remains the same from your other breakpoints */
         align-items: center;
     }
-    
-    .cta-main-text {
-        text-align: left; /* Align the text to the left in its column */
+
+    /* Revert to the original, larger margin below the headline */
+    .hero-headline {
+        
+        margin-bottom: 2rem;
     }
 
-    .cta-button-wrapper {
-        flex-shrink: 0; /* Prevents button from shrinking */
-        padding-left: 2rem; /* Ensures space between text and button */
+    /* Revert to the default browser margins for the paragraph inside the quote */
+    .hero-quote p {
+        margin-top: 1rem;    /* A common browser default for <p> */
+        margin-bottom: 1rem; /* A common browser default for <p> */
     }
 
-    /* --- CTA Section Responsive Styles --- */
+    /* Revert to the original, larger margins for the attribution */
+    .hero-attribution {
+        margin-top: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* --- Overlapping CTA Card Effect --- */
+    /* KEY REFINEMENT: The overlapping card effect is preserved.
+    /* How it works:
+    /* 1. `position: relative` allows us to move the card with `top`.
+    /* 2. `top: -6.5rem` pulls the entire card upwards by 6.5rem, causing it to overlap the section above it.
+    /* 3. `margin-bottom: -6.5rem` is crucial. It pulls the content *below* this card up by the same amount,
+    /* so that the space vacated by the card is removed from the document flow.
+    /* This creates the overlap without leaving a large empty gap. */
+    .cta-banner { padding: 3rem 0 5rem 0; /* Add bottom padding to make room for the pulled-up card. */ }
     .cta-content {
-        flex-direction: row; /* Switch back to a side-by-side layout */
+        position: relative;
+        z-index: 5;
+        top: -6.5rem; 
+        margin-bottom: -6.5rem;
+        flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
         gap: 2rem;
     }
 
     .cta-main-icon {
-        flex-shrink: 0; /* Prevents icon from shrinking */
-    }
-
-
-    .cta-text-block {
-        text-align: left; /* Align the text inside its column to the left */
-    }
-
-    /* We need to re-add the wrapper to our media query as it was removed in the previous steps */
-    .cta-button-wrapper {
-        margin-top: 0;
-        flex-shrink: 0;
-        padding-left: 2rem;
-    }
-
-    /* --- Hero Section Responsive Styles --- */
-    .hero-section {
-        align-items: flex-start; /* Align to top on desktop */
-        min-height: 90vh; /* Make it a tall banner ONLY on desktop */
-        padding: 2rem 0 7rem 0; /* Use larger, specific padding for desktop */
-        background-image: url('../images/ces_homepage_image.jpeg');
-        background-size: cover;
-        background-position: right center;
-    }
-
-    .hero-gradient-overlay {
-        display: block; /* Make the gradient reappear on desktop */
-    }
-
-    .hero-content {
-        max-width: 55%;
-    }
-
-    .hero-buttons {
-        flex-direction: row;
-    }
-
-    .hero-gradient-overlay {
-        display: block;
+        width: 125px;
+        height: 150px;
+        fill: var(--color-maroon);
     }
     
-    .cta-content {
-        position: relative;
-        z-index: 5;
-        top: -6.5rem; 
-        margin-bottom: -6.5rem; /* Match the 'top' value to keep spacing correct */
-    }
-
-    .questions-grid {
-        column-count: 2; /* Switch to two columns on desktop */
-    }
-
-    .footer-grid {
-        grid-template-columns: repeat(3, 1fr);
-        text-align: left;
-    }
-
-    .social-icons {
-        justify-content: center;
-    }
-
-    #contact-info-column {
-        text-align: center;
-    }
-    
-    /* Show the hidden footer columns on desktop */
-    #social-column,
-    #partners-column {
-        display: block;
-    }
-
-    .footer-column h4 {
-        text-align: center;
-    }
-
-    .partner-logos {
-        justify-content: flex-end;
-    }
-}
-
-@media (min-width: 1200px) {
-    .hero-headline {
-        font-size: 2.4rem;
-    }
-}
-
-/* This is a new media query for very wide screens */
-@media (min-width: 1600px) {
     .container {
-        max-width: 1400px; /* Increase the max-width on very large displays */
+        max-width: 1600px;
     }
+    
+    .section-heading {
+        font-size: 2.8rem;
+    }
+
+    .cta-text-beside-button {
+        font-size: 2.2rem; /* Final, larger font size for 4K screens */
+        /* --- ADD ONE OF THE OPTIONS BELOW --- */
+        justify-content: center; /* This is Option 1 */
+    }
+
+    /* --- Final Polish for Service Cards on 4K Screens --- */
+    .services-grid {
+        /* This ensures the grid itself is centered if the screen is wider than the max card widths */
+        justify-content: space-evenly;
+        /* This keeps your 2x2 layout, but prevents each column from growing wider than 500px */
+        /* You can adjust the 500px value to your liking */
+        grid-template-columns: repeat(2, minmax(0, 600px));
+    }
+
+    .services-footer-text {
+        font-size: 2.2rem;
+        margin-bottom: 2.5rem;
+    }
+
 }
