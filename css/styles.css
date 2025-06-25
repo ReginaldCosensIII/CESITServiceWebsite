@@ -884,7 +884,12 @@ giving them the correct small size and right-alignment.
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .footer-grid { grid-template-columns: repeat(3, 1fr); text-align: left; }
+    .footer-grid { 
+        /* This gives the center column more space (1.5fr vs 1fr) */
+        grid-template-columns: 1fr 1.5fr 1fr; 
+        text-align: left; 
+    }
+
     #social-column, #partners-column { display: block; } /* Show hidden footer columns */
     .footer-column h4, #contact-info-column { text-align: center; }
     .partner-logos { justify-content: center; }
