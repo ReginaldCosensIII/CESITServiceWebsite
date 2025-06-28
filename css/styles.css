@@ -780,6 +780,17 @@ giving them the correct small size and right-alignment.
     border-top: 1px solid #e0e0e0;
 }
 
+/* --- Sticky Footer Solution --- */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
 /* --- Responsive Styles --- */
 @media (min-width: 992px) {
     .header-left { display: flex; }
