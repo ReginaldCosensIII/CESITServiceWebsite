@@ -121,7 +121,9 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
+    font-size: small;
+    gap: 1rem;
+    white-space: nowrap;
 }
 
 .main-nav-list a {
@@ -129,7 +131,7 @@ a:hover {
     padding: .5rem 0;
     color: var(--color-white);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .main-nav-list a:hover {
@@ -197,7 +199,7 @@ a:hover {
     position: relative;
     display: flex;
     align-items: center; /* Vertically center content on mobile */
-    padding: 4rem 0 6rem 0;
+    padding: 1rem 0 6rem 0;
     box-sizing: border-box;
     color: var(--color-text);
     background: linear-gradient(145deg, var(--color-dark-slate-light), var(--color-white) 50%);
@@ -219,7 +221,7 @@ a:hover {
 }
 
 .hero-headline {
-    font-size: 2.2rem;
+    font-size: 2.0rem;
     font-weight: 650;
     line-height: 1.4;
     color: var(--color-text);
@@ -326,6 +328,17 @@ a:hover {
     margin-top: 0;
     margin-bottom: 3rem;
     color: var(--color-maroon);
+}
+
+/* --- New style for the long heading in the questions section --- */
+.questions-intro-heading {
+    text-align: center;
+    font-size: 1.6rem; /* Smaller font size specifically for this heading */
+    font-weight: 600;
+    line-height: 1.4; /* Improves readability for multiple lines */
+    color: var(--color-maroon);
+    margin: 0 auto 3rem auto; /* Centers the block and adds bottom margin */
+    max-width: 90%; /* Prevents text from touching the screen edges */
 }
 
 /* --- Styles for the new descriptive subheading --- */
@@ -508,7 +521,7 @@ giving them the correct small size and right-alignment.
 /* --- Styles for the footer of the services section --- */
 .services-footer {
     text-align: center;
-    margin-top: 4rem; /* Adds space above this new section */
+    margin-top: 3rem; /* Adds space above this new section */
     padding-top: 3rem; /* Adds space inside, above the text */
     border-top: 1px solid #e0e0e0; /* A subtle line to create separation */
 }
@@ -762,9 +775,20 @@ giving them the correct small size and right-alignment.
 /* --- Styles for the footer of the testimonial section --- */
 .testimonial-footer {
     text-align: center;
-    margin-top: 2rem; /* Adds space above this new section */
-    padding-top: 2rem; /* Adds space inside, above the button */
-    /*border-top: 1px solid #e0e0e0;  A subtle line to create separation */
+    margin-top: 3rem; /* Adds space above this new section */
+    padding-top: 4rem; /* Adds space inside, above the button */
+    border-top: 1px solid #e0e0e0;
+}
+
+/* --- Sticky Footer Solution --- */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
 }
 
 /* --- Responsive Styles --- */
@@ -845,6 +869,10 @@ giving them the correct small size and right-alignment.
     .cta-button-wrapper { margin-top: 0; flex-shrink: 0; padding-left: 2rem; }
     .cta-main-icon { flex-shrink: 0; }
 
+    .questions-intro-heading {
+        font-size: 2.0rem; /* Increases font size for desktop views */
+    }
+
     .questions-grid { column-count: 2; } /* Switch to two columns */
 
     .conclusion-cta {
@@ -865,6 +893,7 @@ giving them the correct small size and right-alignment.
     }
 
     .services-footer {
+        
         display: flex;           /* This creates the side-by-side layout */
         justify-content: center; /* This centers the items as a group */
         align-items: center;     /* This vertically aligns the text and button */
@@ -989,6 +1018,10 @@ giving them the correct small size and right-alignment.
     
     .section-heading {
         font-size: 2.8rem;
+    }
+
+    .questions-intro-heading {
+        font-size: 2.2rem; /* Increases font size for desktop views */
     }
 
     .cta-text-beside-button {
