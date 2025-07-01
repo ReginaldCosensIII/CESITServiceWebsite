@@ -40,6 +40,22 @@ a:hover {
     margin-right: auto;
 }
 
+.card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    padding: 2.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensures all cards in a row have the same height */
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
 /* --- Header --- */
 .site-header {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -53,36 +69,17 @@ a:hover {
     padding: 1rem 0;
 }
 
+/* --- Mobile Header Spacing Adjustments --- */
 .header-top-grid {
     display: grid;
     grid-template-columns: 1fr auto;
-    align-items: end;
-    gap: 2rem;
+    align-items: center;
+    gap: 0.5rem 1rem;
 }
 
-.header-left {
-    display: none; /* Hidden on mobile, shown on desktop */
-}
-
-.header-left .logo-link {
-    display: flex;
-    align-items: flex-end;
-    gap: 0.75rem;
-    text-decoration: none;
-}
-
-.header-left .logo-image {
-    position: relative;
-    height: 70px;
-    top: 16px; /* This keeps the vertical alignment */
-}
-
-.logo-text {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-maroon);
-    position: relative;
-    top: 2px; /* This keeps the vertical alignment */
+.logo-image-wide {
+    height: 60px; /* Adjust as needed */
+    width: auto;
 }
 
 .header-right {
@@ -94,6 +91,7 @@ a:hover {
     font-weight: 700;
     color: var(--color-maroon);
     font-style: italic;
+    display: none; /* This hides it on mobile */
 }
 
 .contact-sub-text {
@@ -229,32 +227,12 @@ a:hover {
     margin-bottom: 2rem;
 }
 
-.hero-quote {
-    color: var(--color-maroon);
-    font-size: 1.4rem;
-    font-style: italic;
-    line-height: 1.6;
-    margin: 0;
-    padding-left: 1.5rem;
-    border-left: 3px solid var(--color-maroon);
-}
-
-.hero-attribution {
-    font-size: 1.5rem;
-    display: block;
-    text-align: right;
-    font-style: italic;
-    color: var(--color-text);
-    font-weight: 600;
-    margin-top: 0.75rem;
-    margin-bottom: 1.5rem;
-}
-
 .hero-buttons {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+    margin-top: 2.5rem; /* This adds the space you wanted */
 }
 
 .button-primary {
@@ -291,8 +269,7 @@ a:hover {
     background-color: #262626;
     color: var(--color-white);
     text-align: center;
-    /* REFINEMENT: Changed padding to give space for the overlapping card effect on desktop. */
-    padding: 3rem 0;
+    padding: 3rem 0 4rem 0;
 }
 
 .cta-content {
@@ -306,6 +283,12 @@ a:hover {
     align-items: center;
     text-align: center;
     gap: 1.5rem;
+
+    /* --- Add these properties for the mobile overlap --- */
+    position: relative;
+    z-index: 5;
+    top: -6rem; /* Pulls the card up */
+    margin-bottom: -6rem; /* Pulls the content below it up */
 }
 
 .cta-main-icon {
@@ -415,31 +398,6 @@ a:hover {
     background-position: center;
 }
 
-.questions-footer {
-    text-align: center;
-    margin-top: 3rem;
-    border-top: 1px solid #ddd;
-    padding-top: 3rem;
-}
-
-.conclusion-text {
-    font-size: 1.1rem;
-    font-style: italic;
-    color: #555;
-    margin: 0 auto 2rem auto;
-    max-width: 70ch;
-}
-
-.conclusion-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.cta-text-beside-button { font-size: 1.5rem; font-weight: 600; }
-
 .inline-cta-wrapper {
     text-align: center;
     margin-top: 1rem;
@@ -459,11 +417,169 @@ a:hover {
     fill: currentColor;
 }
 
+/* --- New styles for the Two-Column Quote Layout --- */
+.quote-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Stacks to a single column on mobile */
+    gap: 2rem;
+    align-items: center;
+}
+
+.quote-intro {
+    text-align: center; /* On mobile, the intro text is centered */
+}
+
+
+/* --- New styles for the attribution area (for the photo) --- */
+.quote-card-attribution {
+    display: flex; /* This is key for the photo layout */
+    align-items: center;
+    justify-content: center; /* Centers the content within the card */
+    gap: 1rem; /* Space between photo and text */
+}
+
+.attribution-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Prevents image from stretching */
+    border: 3px solid #f0f0f0;
+}
+
+.attribution-text {
+    text-align: left;
+}
+
+
+/* --- DESKTOP STYLES --- */
+@media (min-width: 992px) {
+    .quote-layout-grid {
+        grid-template-columns: 1fr 1.5fr; /* Two columns on desktop */
+        gap: 4rem; /* More space on desktop */
+    }
+
+    .quote-intro {
+        text-align: left; /* Left-align the intro text on desktop */
+    }
+}
+
+/* --- Featured Quote Section (Modern Card) --- */
+.featured-quote-section-modern {
+    padding: 5rem 0 0;
+    background-color: white;
+    margin-bottom: 4rem;
+}
+
+.quote-card {
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    height: auto;
+}
+
+.quote-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.quote-card-icon {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100px;
+    height: 100px;
+    color: var(--color-dark-slate);
+    opacity: 0.1;
+}
+
+.quote-card-text {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    overflow-wrap: break-word;
+}
+
+.quote-card-attribution {
+    justify-content: flex-end;
+    margin-top: 2rem;
+    font-weight: 600;
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+}
+
+.attribution-name {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--color-dark-slate);
+}
+
+.attribution-company {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-maroon);
+    margin-top: 0.25rem;
+}
+
+/* --- Featured Quote Section (Classic) --- */
+.featured-quote-section {
+    padding: 4rem 0;
+    background-color: white; /* Light background to separate it */
+}
+
+.featured-quote {
+    margin: 0 auto; /* Centers the blockquote */
+    max-width: 75ch; /* Limits width for readability */
+    text-align: center;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--color-dark-slate);
+    border-left: 4px solid var(--color-maroon);
+    padding-left: 2rem;
+}
+
+.featured-quote-attribution {
+    display: block; /* Puts it on its own line */
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    font-style: normal; /* Un-italicize the citation */
+    font-weight: 600;
+    color: var(--color-maroon);
+}
+
+/* --- Alignment Helpers for Quote Block --- */
+
+/* Add this class to the section tag to align the quote to the left */
+.align-left .featured-quote {
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+}
+
+/* Add this class to the section tag to align the quote to the right */
+.align-right .featured-quote {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+}
+
+/* For right-aligned text, the border looks better on the right */
+.align-right .featured-quote {
+    border-left: none;
+    border-right: 4px solid var(--color-maroon);
+    padding-left: 0;
+    padding-right: 2rem;
+}
+
 /* ==========================================================================
    Services Section
    ========================================================================== */
 .services-section {
-    padding: 5rem 0;
+    padding-top: 0;
+    padding-bottom: 5rem; 
     /* Corrected to use var(--color-dark-slate-light) */
     background:  white;
 }
@@ -474,22 +590,21 @@ a:hover {
 
 .services-grid {
     display: grid;
-    /* Mobile: Single column */
     grid-template-columns: 1fr;
     gap: 2rem;
-    margin-top: 3rem; /* Space below the heading */
+    margin-top: 3rem;
+    grid-auto-rows: 1fr; /* This is the fix */
 }
 
 .service-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
     padding: 2.5rem 2rem;
-    background-color: #fff;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    display: flex;
-    flex-direction: column;
-    /* This transition is for our hover effect */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Needed for the icon */
+    text-align: left;   /* Aligns the content to the left */
+    height: auto;
+}
+
+.services-grid .card {
+    height: auto; /* Overrides height: 100% and lets content define the height */
 }
 
 /* This is our first "spice up" idea: a hover effect */
@@ -502,36 +617,16 @@ This new rule targets ONLY the primary buttons inside a service card,
 giving them the correct small size and right-alignment.
 */
 .service-card .button-primary {
-    /* Sizing: We are re-applying the smaller padding */
     padding: 0.4rem 1.2rem;
-
-    /* Alignment: We are re-applying the right-alignment */
+    /* This is the key change to push the button to the bottom */
+    margin-top: auto; 
     align-self: flex-end;
-
-    /* Spacing: We are re-applying the margin-top */
-    margin-top: 1.5rem;
 }
 
 .service-card-icon {
     width: 50px;
     height: 50px;
-    margin-bottom: 1.5rem;
-}
-
-/* --- Styles for the footer of the services section --- */
-.services-footer {
-    text-align: center;
-    margin-top: 3rem; /* Adds space above this new section */
-    padding-top: 3rem; /* Adds space inside, above the text */
-    border-top: 1px solid #e0e0e0; /* A subtle line to create separation */
-}
-
-.services-footer-text {
-    /* Increased font size */
-    font-size: 1.5rem; 
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.0rem;
 }
 
 /* This is another "spice up" idea: Icon wrapper */
@@ -604,7 +699,10 @@ giving them the correct small size and right-alignment.
     margin-top: 0.75rem; /* Slightly adjusted margin for aesthetics */
 }
 
-
+/* --- Utility class to remove the heading accent line --- */
+.section-heading.no-accent::after {
+    display: none; /* This simply hides the pseudo-element that creates the line */
+}
 
 /* This makes sure the accent line is not centered */
 .section-heading.text-left {
@@ -667,21 +765,8 @@ giving them the correct small size and right-alignment.
 }
 
 .testimonial-card {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    /* Flexbox helps us push the 'Read more' link to the bottom */
-    display: flex;
-    flex-direction: column;
-    /* This new line makes the hover effect animate smoothly */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* --- This adds the same hover effect as the service cards --- */
-.testimonial-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    background-color: var(--color-bg-light);
+    height: auto; /* This overrides the height: 100% from the .card class */
 }
 
 .testimonial-header {
@@ -772,14 +857,6 @@ giving them the correct small size and right-alignment.
     background-color: var(--color-dark-slate);
 }
 
-/* --- Styles for the footer of the testimonial section --- */
-.testimonial-footer {
-    text-align: center;
-    margin-top: 3rem; /* Adds space above this new section */
-    padding-top: 4rem; /* Adds space inside, above the button */
-    border-top: 1px solid #e0e0e0;
-}
-
 /* --- Sticky Footer Solution --- */
 body {
     display: flex;
@@ -791,26 +868,87 @@ main {
     flex-grow: 1;
 }
 
+/* ==========================================================================
+   Section Footer Component (Revised)
+   ========================================================================== */
+.section-footer {
+    /* The Divider Line */
+    border-top: 1px solid #e0e0e0;
+
+    /* Spacing */
+    margin-top: 4rem;
+    padding-top: 3rem;
+
+    /* Layout - Crucially, we use flexbox here to center everything */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.section-footer-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    max-width: 50ch;
+}
+
+.section-footer-cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* --- Styling for the unique conclusion text in the IT Assessment section --- */
+.conclusion-text {
+    font-size: 1.1rem;   /* Makes it slightly bigger than standard text */
+    font-style: italic;  /* Italicizes the text */
+    color: #555;         /* A slightly softer color */
+    text-align: center;
+    
+    /* This "squeezes" the text to force a line break and centers it */
+    max-width: 70ch; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Desktop-specific layout for the CTA */
+@media (min-width: 992px) {
+    .section-footer-cta {
+        flex-direction: row;
+        align-items: center; /* Ensures vertical centering */
+    }
+
+    .section-footer-text {
+        font-size: 1.8rem;
+    }
+}
+
 /* --- Responsive Styles --- */
 @media (min-width: 992px) {
     .header-left { display: flex; }
-    .header-top-grid { grid-template-columns: 1fr auto 1fr; }
     .header-right { grid-column: 3 / 4; text-align: right; }
     .mobile-menu-toggle-wrapper { display: none; }
     .header-nav-bar { display: block; }
 
-/* This rule nudges the logo text down for perfect alignment with the image */
-.logo-text {
-    position: relative;
-    top: 8px; /* Adjust this value by a few pixels if needed */
-}
+    .header-top-grid {
+        grid-template-columns: 1fr auto 1fr;
+        gap: 2rem; /* Restores the original 2rem gap on desktop */
+        align-items: end; /* Restores the original alignment on desktop */
+    }
+
+    .contact-main-text {
+        display: block; /* This makes it visible again on screens 992px and wider */
+    }
     
-/* The container rules remain the same: a responsive height with a fixed ceiling, with content centered. */
 .hero-section {
     align-items: center;
-    min-height: 80vh;
-    max-height: 800px;
-    padding: 1.5rem 0 7rem 0; /* Symmetrical padding is good for centered content */
+    min-height: 60vh; /* REDUCED from 80vh to make the section shorter */
+    max-height: 700px; /* You can also reduce this if needed */
+    padding: 1.5rem 0 7rem 0;
     background-image: url('../images/ces_homepage_image.jpeg');
     background-size: cover;
     background-position: right center;
@@ -822,24 +960,6 @@ main {
 .hero-headline {
     /* Reduced bottom margin to pull the quote up */
     margin-bottom: 0.5rem; /* Was 2rem */
-}
-
-.hero-quote {
-    /* Removing default blockquote margins */
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-/* This targets the paragraph INSIDE the quote and removes its default margins. */
-.hero-quote p {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.hero-attribution {
-    /* Reduced top and bottom margin to tighten the spacing */
-    margin-top: 0.0rem;      /* Was 0.75rem */
-    margin-bottom: 0.5rem;   /* Was 1.5rem */
 }
 
     .hero-gradient-overlay { display: block; }
@@ -875,37 +995,15 @@ main {
 
     .questions-grid { column-count: 2; } /* Switch to two columns */
 
-    .conclusion-cta {
-        flex-direction: row; /* Arranges items side-by-side */
-        align-items: center;     /* Vertically aligns the text and button */
-        width: 100%;
-    }
-
     .services-grid {
-        /* Desktop: 4 columns across */
-        grid-template-columns: repeat(2, 1fr);
+        /* Desktop: 3 columns across */
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .service-card-icon, .icon-wrapper {
         /* On desktop, align icons to the left for a more professional look */
         margin-left: 0;
         margin-right: auto;
-    }
-
-    .services-footer {
-        
-        display: flex;           /* This creates the side-by-side layout */
-        justify-content: center; /* This centers the items as a group */
-        align-items: center;     /* This vertically aligns the text and button */
-        gap: 2rem;               /* This creates space between them */
-    }
-
-    /* This is a small but important adjustment. By default, the text inside the footer
-    will try to take up all available space. We need to prevent the bottom margin
-    from applying on desktop so the vertical alignment works correctly. */
-    .services-footer-text {
-        font-size: 1.8rem;
-        margin-bottom: 2.0rem;
     }
 
     .testimonial-grid {
@@ -974,18 +1072,6 @@ main {
         margin-bottom: 2rem;
     }
 
-    /* Revert to the default browser margins for the paragraph inside the quote */
-    .hero-quote p {
-        margin-top: 1rem;    /* A common browser default for <p> */
-        margin-bottom: 1rem; /* A common browser default for <p> */
-    }
-
-    /* Revert to the original, larger margins for the attribution */
-    .hero-attribution {
-        margin-top: 0.75rem;
-        margin-bottom: 1.5rem;
-    }
-
     /* --- Overlapping CTA Card Effect --- */
     /* KEY REFINEMENT: The overlapping card effect is preserved.
     /* How it works:
@@ -1024,24 +1110,13 @@ main {
         font-size: 2.2rem; /* Increases font size for desktop views */
     }
 
-    .cta-text-beside-button {
-        font-size: 2.2rem; /* Final, larger font size for 4K screens */
-        /* --- ADD ONE OF THE OPTIONS BELOW --- */
-        justify-content: center; /* This is Option 1 */
-    }
-
     /* --- Final Polish for Service Cards on 4K Screens --- */
     .services-grid {
         /* This ensures the grid itself is centered if the screen is wider than the max card widths */
         justify-content: space-evenly;
         /* This keeps your 2x2 layout, but prevents each column from growing wider than 500px */
         /* You can adjust the 500px value to your liking */
-        grid-template-columns: repeat(2, minmax(0, 600px));
-    }
-
-    .services-footer-text {
-        font-size: 2.2rem;
-        margin-bottom: 2.5rem;
+        grid-template-columns: repeat(3, minmax(0, 500px));
     }
 
 }
