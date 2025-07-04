@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section class="contact-form">
+    <h2>Contact Us</h2>
+    <form method="POST" action="/CESBackend/api/contact">
+      <input type="text" name="FirstName" placeholder="First Name" required />
+      <input type="email" name="Email" placeholder="Email" required />
+      <textarea name="Message" placeholder="Your message..." required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</body>
+</html>
