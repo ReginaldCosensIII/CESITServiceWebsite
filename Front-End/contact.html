@@ -1,20 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Computer Enhancement Systems</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        /* Additional styles for a more polished form */
+        .contact-form-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--color-dark-slate);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--color-white);
+            background-color: var(--color-maroon);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-group button:hover {
+            background-color: var(--color-dark-slate);
+        }
+    </style>
 </head>
 <body>
-  <section class="contact-form">
-    <h2>Contact Us</h2>
-    <form method="POST" action="/CESBackend/api/contact">
-      <input type="text" name="FirstName" placeholder="First Name" required />
-      <input type="email" name="Email" placeholder="Email" required />
-      <textarea name="Message" placeholder="Your message..." required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
-</body>
+    <main>
+        <div class="contact-form-container">
+            <section class="contact-form">
+                <h2>Get in Touch</h2>
+                <form id="contactForm" method="POST" action="/CESBackend/api/contact">
+                    <div class="form-group">
+                        <label for="FirstName">First Name</label>
+                        <input type="text" id="FirstName" name="FirstName" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email Address</label>
+                        <input type="email" id="Email" name="Email" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Reason">Reason for Contact</label>
+                        <select id="Reason" name="Reason" required>
+                            <option value="" disabled selected>Please select a reason...</option>
+                            <option value="service">Request a Service</option>
+                            <option value="call">Book a 15-Minute Call</option>
+                            <option value="scan">Free Penetration Scan</option>
+                            <option value="consultation">Schedule Your Consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Message">Message</label>
+                        <textarea id="Message" name="Message" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Send Message</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to pre-fill the dropdown from a URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const reason = urlParams.get('reason');
+            if (reason) {
+                const dropdown = document.getElementById('Reason');
+                if (dropdown.querySelector(`option[value="${reason}"]`)) {
+                    dropdown.value = reason;
+                }
+            }
+        });
+    </script>
+    </body>
 </html>
