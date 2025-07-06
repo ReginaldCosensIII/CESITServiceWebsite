@@ -1,0 +1,21 @@
+# .gitignore
+
+# Ignore node_modules if used later
+node_modules/
+
+# Ignore log files and temp files
+*.log
+*.tmp
+
+# Ignore .DS_Store (macOS), Thumbs.db (Windows)
+.DS_Store
+Thumbs.db
+
+# Ignore Visual Studio project junk
+.vscode/
+*.user
+*.suo
+
+# Ignore publish artifacts (only include if publishing outside repo)
+**/bin/
+**/obj/
