@@ -78,7 +78,7 @@
                         <label for="Reason">Reason for Contact</label>
                         <select id="Reason" name="Reason" required>
                             <option value="" disabled selected>Please select a reason...</option>
-                            <option value="service">Request a Service</option>
+                            <option value="service">Contact Us About Our Services</option>
                             <option value="call">Book a 15-Minute Call</option>
                             <option value="scan">Free Penetration Scan</option>
                             <option value="consultation">Schedule Your Consultation</option>
@@ -98,7 +98,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Function to pre-fill the dropdown from a URL parameter
+            // Pre-fill dropdown from URL parameter
             const urlParams = new URLSearchParams(window.location.search);
             const reason = urlParams.get('reason');
             if (reason) {
@@ -107,6 +107,39 @@
                     dropdown.value = reason;
                 }
             }
+
+            // Handle form submission
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                const formData = new FormData(this);
+                const action = this.getAttribute('action');
+
+                fetch(action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // If submission is successful, redirect to the thank-you page
+                        window.location.href = 'thank-you.html';
+                    } else {
+                        // If there's an error, log it and alert the user
+                        response.json().then(data => {
+                            console.error('Form submission error:', data);
+                            alert('There was an error submitting your form. Please try again.');
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Form submission fetch error:', error);
+                    alert('There was an error sending your message. Please check your connection and try again.');
+                });
+            });
         });
     </script>
     </body>
