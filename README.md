@@ -9,20 +9,34 @@ This is the official redevelopment project for the CES (Computer Enhancement Ser
 ```text
 CESRebuild/
 ├── Front-End/                  # All HTML, CSS, and client-side assets
-│   ├── index.html
-│   ├── contact.html
+│   ├── index.html              # Main landing page of the website.
+│   ├── contact.html            # Contact form page.
+│   ├── thank-you.html          # Page displayed after successful form submission.
+│   ├── managed-services.html   # Page for Managed IT Services.
+│   ├── voip-solutions.html     # Page for VoIP Solutions.
+│   ├── base.html               # A base template for other pages.
+│   ├── web.config              # IIS configuration for the front-end.
 │   ├── css/
+│   │   ├── styles.css          # Main stylesheet for the website.
+│   │   ├── managed-services.css # Styles specific to the Managed Services page.
+│   │   └── voip-solutions.css  # Styles specific to the VoIP Solutions page.
 │   ├── js/
-│   └── images/
+│   │   └── main.js             # Main JavaScript file for client-side interactions.
+│   ├── images/                 # Directory for all image assets.
+│   └── NewOptionalLooks/
+│       └── index_quote_plain.html # An alternate version of the index page.
 │
-├── Contact-Form-Backend/      # Published ASP.NET Core backend
-│   ├── CESRebuildContactFormBackend.dll
-│   ├── web.config
-│   ├── wwwroot/               # Contains placeholder static files
-│   └── ...                    # Other compiled & runtime backend files
+├── Contact-Form-Backend/      # Published ASP.NET Core backend for handling the contact form.
+│   ├── CESRebuildContactFormBackend.dll # The main compiled library for the backend application.
+│   ├── CESRebuildContactFormBackend.deps.json # Dependencies file for the backend application.
+│   ├── CESRebuildContactFormBackend.runtimeconfig.json # Runtime configuration for the backend.
+│   ├── CESRebuildContactFormBackend.staticwebassets.endpoints.json # Endpoints for static web assets.
+│   ├── appsettings.json        # General settings for the backend application.
+│   ├── appsettings.Development.json # Development-specific settings for the backend.
+│   └── web.config              # IIS configuration for the ASP.NET Core application.
 │
-├── vercel.json                # Vercel deployment config (points to Front-End)
-└── README.md                  # Project documentation (this file)
+├── .gitignore                 # Specifies intentionally untracked files to ignore.
+└── README.md                  # Project documentation with structure, deployment, and tech stack details.
 ```
 
 ---
