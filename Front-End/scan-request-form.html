@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Cybersecurity Penetration Scan | Computer Enhancement Systems</title>
+    
+    <!-- Link to the main stylesheet to inherit variables -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Link to the specific stylesheet for this form -->
+    <link rel="stylesheet" href="css/scan-request-form.css" />
+
+    <!-- Google reCAPTCHA Script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body class="popup-body">
+
+    <div class="popup-container">
+        <header class="popup-header">
+            <img src="images/ceslogo.png" alt="Computer Enhancement Systems Logo" class="popup-logo">
+            <p class="popup-contact-info">Call Us: <a href="tel:+13016201580">301-620-1580</a></p>
+            <h1>Yes, Sign Me Up For A Free Cyber Security Scan!</h1>
+        </header>
+
+        <!-- Detailed Description Section -->
+        <section class="form-description-details">
+            <p><strong>There’s no charge for this, and it only requires a 30-60 minute meeting.</strong> After 30+ years, we’ve perfected a process for helping companies like yours get their IT systems working the way they are supposed to.</p>
+            
+            <h3>After this Free Assessment, we’ll be able to answer:</h3>
+            <ul>
+                <li>Are your IT systems truly secured from hackers, viruses, and rogue employees?</li>
+                <li>Are your backups configured properly to ensure you could be back up and running fast in a disaster?</li>
+                <li>Are you unknowingly exposing your company to expensive fines under new US data breach laws?</li>
+                <li>Could you utilize cheaper cloud technologies to lower IT costs and improve remote work?</li>
+                <li>Are your systems optimized for maximum speed and performance?</li>
+            </ul>
+
+            <h3>At The End Of This Assessment, One Of Three Things Will Happen:</h3>
+            <ol>
+                <li>You love the plan and decide to implement it on your own.</li>
+                <li>You love the plan and ask to become our client so we can implement it for you.</li>
+                <li>In the unlikely event you feel you wasted your time, we will send you a check for $100. No questions asked.</li>
+            </ol>
+            <p class="form-cta-text">Simply fill out the form below to get started!</p>
+        </section>
+
+        <!-- KEAP/INFUSIONSOFT FORM -->
+        <form id="keapScanForm" accept-charset="UTF-8" action="https://nks984.infusionsoft.com/app/form/process/9e8e9af6742e8fb0f74c9cb12dd60965" method="POST" class="contact-form">
+            
+            <input type="text" name="honeypot" class="honeypot" autocomplete="off" />
+            <input name="inf_form_xid" type="hidden" value="3bc358cf9c3280cc84031aa4f8a5681e" />
+            <input name="inf_form_name" type="hidden" value="NETWORK ASSESSMENT &#10;REQUEST" />
+            <input name="infusionsoft_version" type="hidden" value="1.70.0.551839" />
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="inf_field_FirstName">First Name *</label>
+                    <input id="inf_field_FirstName" name="inf_field_FirstName" type="text" required />
+                </div>
+                <div class="form-group">
+                    <label for="inf_field_LastName">Last Name *</label>
+                    <input id="inf_field_LastName" name="inf_field_LastName" type="text" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inf_field_Company">Company *</label>
+                <input id="inf_field_Company" name="inf_field_Company" type="text" required />
+            </div>
+
+            <div class="form-group">
+                <label for="inf_field_Email">Email *</label>
+                <input id="inf_field_Email" name="inf_field_Email" type="text" required />
+            </div>
+
+            <div class="form-group">
+                <label for="inf_field_Phone1">Phone</label>
+                <input id="inf_field_Phone1" name="inf_field_Phone1" type="text" />
+            </div>
+
+            <!-- Google reCAPTCHA Element -->
+            <div class="recaptcha-wrapper">
+                <div class="g-recaptcha" data-sitekey="6Lcp6H0rAAAAAA7Dd0kjQr4IRBcZDHTb_fFVByXJ"></div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn-submit button-primary">Request My Free Scan</button>
+            </div>
+        </form>
+    </div>
+
+    <footer class="popup-footer">
+        <p>&copy; 2025 Computer Enhancement Systems, Inc. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Keap Tracking Scripts -->
+    <script src="https://wnb607.infusionsoft.app/app/webTracking/getTrackingCode" type="text/javascript"></script>
+    <script src="https://wnb607.infusionsoft.com/app/timezone/timezoneInputJs?xid=3bc358cf9c3280cc84031aa4f8a5681e" type="text/javascript"></script>
+    <script src="https://nks984.infusionsoft.com/js/jquery/jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="https://wnb607.infusionsoft.app/app/webform/overwriteRefererJs" type="text/javascript"></script>
+
+    <script>
+        // Form validation for honeypot and reCAPTCHA
+        document.getElementById('keapScanForm').addEventListener('submit', function(event) {
+            const honeypot = document.querySelector('input[name="honeypot"]').value;
+            if (honeypot) {
+                event.preventDefault(); // Silently stop spam
+                return;
+            }
+            if (grecaptcha.getResponse() === "") {
+                alert("Please complete the CAPTCHA to continue.");
+                event.preventDefault(); // Stop submission if reCAPTCHA is not filled
+            }
+        });
+    </script>
+</body>
+</html>
