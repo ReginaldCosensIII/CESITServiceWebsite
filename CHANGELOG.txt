@@ -1,0 +1,57 @@
+============================================================
+Computer Enhancement Systems – CES IT Website Rebuild
+Developer Changelog / Update Log
+============================================================
+
+Project: CES IT Service Website Rebuild  
+Maintainer: Reggie Cosens  
+Start Date: [Insert Project Start Date]  
+Version Control: Hybrid (GitHub for versioning / NAS for internal deployment)  
+Documentation Last Updated: 2025-07-10
+
+Purpose:  
+This file documents notable updates, bug fixes, design iterations,  
+deployment actions, and other tracked changes made to the CES website  
+project. Each entry includes a timestamp, description, and affected files.
+
+====================================================================
+[2025-07-10] Update: Homepage Hero Section
+====================================================================
+
+Summary:  
+Added a supporting regional service line below the main hero heading.
+
+File(s) Modified:  
+- index.html
+
+Details:  
+Inserted the following line between the heading and CTA button:  
+> “Across Frederick MD, Washington DC Metro area, Northern Virginia, and beyond.”
+
+Reason:  
+To clearly communicate CES's service region and support marketing/branding.
+
+GitHub Commit ID:  
+[Insert commit ID once pushed]
+
+
+====================================================================
+[2025-07-10] Update: Global Stylesheet – Text Sizing & Layout
+====================================================================
+
+Summary:  
+Adjusted global typography and padding to better align with design goals
+across both desktop and mobile devices.
+
+File(s) Modified:  
+- assets/css/styles.css
+
+Details:  
+- Increased or decreased `font-size` values for specific elements.  
+- Modified `padding` on hero section and/or heading elements.  
+- Ensured improved consistency across contact forms and homepage layout.
+
+Reason:  
+To improve visual hierarchy, branding consistency, and responsiveness.
+
+*********************************************************************
