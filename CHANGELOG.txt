@@ -83,3 +83,22 @@ To build a digital version of CES’s AI Video Surveillance
 print flyer, extending marketing efforts and showcasing  
 CES’s camera and surveillance product offerings.
 
+====================================================================
+[2025-07-15] Update: Homepage Questions and Hero Section Text
+====================================================================
+
+Summary:  
+Fixed the questions section and updated the hero text on the homepage.
+
+File(s) Modified:  
+- index.html
+
+Details:  
+- Reverted to the correct 6 questions for the IT questionnaire section.
+- Removed the word "Across" from the regional service line in the hero section.
+
+Reason:  
+To ensure the homepage reflects the latest content and is in line with the most recent updates provided by Mr. Robertson.
+
+
+
