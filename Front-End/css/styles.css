@@ -465,18 +465,6 @@ a:hover {
     text-align: left;
 }
 
-
-@media (min-width: 992px) {
-    .quote-layout-grid {
-        grid-template-columns: 1fr 1.5fr;
-        gap: 4rem;
-    }
-
-    .quote-intro {
-        text-align: left;
-    }
-}
-
 .featured-quote-section-modern {
     padding: 5rem 0 0;
     background-color: white;
@@ -871,6 +859,15 @@ main {
     }
 
     .questions-grid { column-count: 2; }
+
+    .quote-layout-grid {
+        grid-template-columns: 1fr 1.5fr;
+        gap: 4rem;
+    }
+
+    .quote-intro {
+        text-align: left;
+    }
 
     .services-grid {
         grid-template-columns: repeat(3, 1fr);
