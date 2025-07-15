@@ -54,4 +54,32 @@ Details:
 Reason:  
 To improve visual hierarchy, branding consistency, and responsiveness.
 
-*********************************************************************
+====================================================================
+[2025-07-13] Feature Add: AI Video Surveillance Webpage
+====================================================================
+
+Summary:  
+Added a new webpage titled "AI Video Surveillance" based on  
+marketing materials provided by CES. The page is fully responsive,  
+branded, and styled with a mobile-first approach.
+
+File(s) Added:  
+- Front-End/video-surveillance.html  
+- Front-End/css/video-surveillance.css  
+- Front-End/images/video-surveillance/  
+
+Details:  
+- Created a hero section with a responsive background image  
+  and subheading.  
+- Implemented a three-item product listing area with adaptive  
+  layout for desktop and mobile.  
+- Added a bottom decorative banner with branding visuals.  
+- Modal functionality added for product pop-up details.  
+- Custom styles isolated to video-surveillance.css.  
+- Global branding styles reused from styles.css.
+
+Reason:  
+To build a digital version of CES’s AI Video Surveillance  
+print flyer, extending marketing efforts and showcasing  
+CES’s camera and surveillance product offerings.
+
