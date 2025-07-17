@@ -117,5 +117,32 @@ To enable scalable, trackable consultation lead capture across multiple pages wh
 simplifying future form reuse. This also solves the issue of categorizing and pre-tagging
  contact reasons for easier review within Keap.
 
+====================================================================
+[2025-07-16] Feature Add: Homepage – Business Lines of CES Section
+====================================================================
+
+Summary:  
+Added a new section to the homepage highlighting CES’s four primary business lines:  
+Managed Services, Advanced Cybersecurity, Compliance, and AI Integration.
+
+File(s) Modified:  
+- Front-End/index.html  
+- Front-End/css/styles.css
+
+Details:  
+- Implemented a responsive, two-column grid layout beneath the IT Questionnaire.  
+- Styled each business line with an icon, heading, and description.  
+- Each line item is now a link to a relevant internal service page.  
+- Hover interactions animate the card and highlight text for better user engagement.  
+- Utility class `.no-accent` added to remove underline from certain section headings 
+for visual consistency.  
+- Adjusted global section padding and margins for improved layout rhythm and spacing.
+
+Reason:  
+To clarify and visually promote CES’s primary service areas to users in a modern, accessible 
+format. This also supports clearer navigation and branding goals discussed with project 
+stakeholders.
+
+
 
 
