@@ -143,6 +143,20 @@ To clarify and visually promote CES’s primary service areas to users in a mode
 format. This also supports clearer navigation and branding goals discussed with project 
 stakeholders.
 
+====================================================================
+[2025-07-17] Update: Homepage Meta Tags for SEO
+====================================================================
 
+Summary:  
+Added essential meta tags to homepage head for modern Google SEO optimization.
 
+File(s) Modified:  
+- Front-End/index.html  
 
+Details:  
+- Added/updated `<meta name="description">`, `<meta name="keywords">`,  
+  `<meta property="og:title">`, and other relevant tags.
+- Verified proper placement in `<head>` and modern tag formatting.
+
+Reason:  
+To improve visibility on search engines and support long-term SEO goals.
