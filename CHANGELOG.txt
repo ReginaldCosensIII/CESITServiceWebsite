@@ -83,3 +83,39 @@ To build a digital version of CES’s AI Video Surveillance
 print flyer, extending marketing efforts and showcasing  
 CES’s camera and surveillance product offerings.
 
+====================================================================
+[2025-07-16] Feature Add: CTA Section + Reusable Consultation Form
+====================================================================
+
+Summary:  
+Added a new call-to-action (CTA) section to the AI Video Surveillance
+webpage and developed a reusable, dynamically populated consultation 
+contact form. This enhances lead generation while unifying form handling 
+logic across the site.
+
+File(s) Added:  
+- Front-End/contact-form.html  
+- Front-End/css/contact-forms.css  
+
+File(s) Modified:  
+- Front-End/video-surveillance.html  
+
+Details:  
+- Implemented a visually styled CTA section at the bottom of video-
+surveillance.html above the footer tombstone.  
+- CTA includes a headline, supporting text, and a button linked to the new 
+dynamic contact form.  
+- Created contact-form.html with full Keap/Infusionsoft integration using a 
+legacy endpoint (form xid: a1087e9c3bd1f0d3fafcfb1f88a3bbcd).  
+- Integrated dynamic behavior using JavaScript to read URL parameters (e.g., ?reason=video).  
+  - This updates the form title, supporting text, and preloads the message field.  
+- Developed a new CSS file (contact-forms.css) to unify styling across all contact
+ forms while preserving CES branding and layout standards.
+
+Reason:  
+To enable scalable, trackable consultation lead capture across multiple pages while 
+simplifying future form reuse. This also solves the issue of categorizing and pre-tagging
+ contact reasons for easier review within Keap.
+
+
+
