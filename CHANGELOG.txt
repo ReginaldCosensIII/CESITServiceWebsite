@@ -160,3 +160,28 @@ Details:
 
 Reason:  
 To improve visibility on search engines and support long-term SEO goals.
+
+============================================================================
+[2025-07-17] Update: Homepage Business Lines Section Carousel Implementation
+============================================================================
+
+
+Added
+- New **Business Lines of CES** section to homepage featuring a carousel-based layout.
+  - Carousel includes slides for:
+    - Managed Services
+    - Advanced Cybersecurity
+    - Compliance
+    - AI Integration
+  - Each slide includes a heading and supporting text with placeholder image areas.
+  - Responsive layout with smooth slide transitions using JavaScript.
+  - Designed to provide a modern, interactive, and engaging user experience.
+
+Changed
+- Replaced original grid-style Business Lines section with carousel implementation.
+- Updated `index.html`, `styles.css`, and `main.js` to support new carousel functionality and layout.
+
+Notes
+- Placeholder colored backgrounds currently used in place of finalized images.
+- Content and image assets can easily be updated as needed.
+
