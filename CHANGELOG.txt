@@ -185,3 +185,92 @@ Notes
 - Placeholder colored backgrounds currently used in place of finalized images.
 - Content and image assets can easily be updated as needed.
 
+====================================================================
+[2025-07-17] Update: SEO Enhancements – Homepage & Surveillance Page
+====================================================================
+
+Summary:  
+Implemented SEO-focused metadata and structured data updates for the homepage 
+(index.html) and AI Video Surveillance page (video-surveillance.html). This includes 
+adding LocalBusiness and Product schema, social media tags, and sitemap/robots.txt 
+supporting changes.
+
+File(s) Modified:  
+- Front-End/index.html  
+- Front-End/video-surveillance.html  
+- Front-End/robots.txt  
+- Front-End/sitemap.xml  
+
+File(s) Added:  
+- Documentation/seo-optimization-progress-report.md  
+- Documentation/Seo Optimization Report.txt  
+
+Details:  
+- Added `<title>`, `<meta name="description">`, Open Graph and Twitter Card meta tags.
+- Added `link rel="canonical"` tags for both pages.
+- Implemented `LocalBusiness` schema for both pages using JSON-LD.
+- Implemented `Product` schema on video-surveillance.html, including name, images, description, and brand.
+- Refactored robots.txt to include basic disallow rules and sitemap reference.
+- Created and structured sitemap.xml with appropriate priority levels and newly added `<lastmod>` values.
+- Validated structured data using Google’s Rich Results and Schema validators (1 warning noted: missing "offers", "review", or "aggregateRating" on product schema).
+- Added alt text on all major images and improved semantic HTML.
+- Created a living SEO Optimization Progress Report to track efforts.
+
+Reason:  
+To ensure strong SEO fundamentals are in place ahead of final deployment. These 
+changes improve visibility, crawlability, and indexability while aligning with 
+Google best practices.
+
+🟢 Changelog: v1.0.0-pre-deploy
+Date: July 23, 2025
+Branch: ces-initial-deployment-prep
+Author: Reggie Cosens
+
+✨ Major Updates
+Modular CSS Architecture Implemented
+
+Introduced a clean, scalable 3-tiered CSS system:
+
+styles.css: global styling
+
+supporting-styles.css: shared layout components (hero, CTA, tombstones, etc.)
+
+[page-name].css: page-specific styling (e.g., hero image overrides, layout adjustments)
+
+📄 Page Additions & Finalizations
+Finalized video-surveillance.html
+
+Full layout refactored using modular CSS structure
+
+Interactive modal system for product cards with detailed product info
+
+Enhanced hover effects for UX polish
+
+Fully populated content including AI surveillance product features
+
+Created managed-services.html
+
+Custom background hero and handshake watermark graphic
+
+New “blurb” section with 2-column rounded gray boxes
+
+Interactive hover effects and custom “tombstone” banner with revised layout
+
+Final styling aligned with brand voice and template consistency
+
+📨 Contact Form Enhancements
+Dynamic contact form behavior (contact-form.html)
+
+Added dynamic routing via ?reason= URL parameter
+
+managed-it reason now supported, with tailored title, description, and pre-filled messaging
+
+Improved contextual messaging for enhanced lead clarity
+
+📦 Ready for Deployment
+video-surveillance.html, managed-services.html, and contact-form.html are fully styled, tested, and integration-ready
+
+Modular CSS structure allows efficient rollout of additional service pages
+
+
+
