@@ -1,0 +1,180 @@
+/*
+ * ===============================================
+ * SHARED STYLESHEET FOR SERVICE PAGES
+ * ===============================================
+ * Contains common layouts for the hero, products,
+ * and CTA sections. Tombstone styles are handled
+ * in page-specific stylesheets.
+ */
+
+/* --- Page Hero Section --- */
+.page-hero {
+    background-color: #85CCAA; /* Fallback color */
+    background-size: cover;
+    background-position: center center;
+    padding: 4rem 1rem;
+    text-align: center;
+    position: relative;
+    color: white;
+    display: flex; /* Enables flexbox for centering */
+    align-items: center; /* Vertically centers content */
+    justify-content: center; /* Horizontally centers content */
+}
+
+.page-hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: white; 
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.page-hero-subheading {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    max-width: 85ch; 
+    margin: 1rem auto 0; 
+}
+
+/* --- Products Section --- */
+.products-section {
+    padding: 4rem 1rem;
+    background-color: #f7f9f8; 
+}
+
+.products-section .section-heading {
+    margin-bottom: 3rem;
+    color: var(--color-dark-slate);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-item {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.product-image {
+    margin-bottom: 1.5rem;
+}
+
+.product-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.product-content h3 {
+    color: var(--color-maroon);
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.product-content p {
+    color: var(--color-text);
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.details-button {
+    display: inline-block;
+    background-color: var(--color-dark-slate);
+    color: var(--color-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    margin-top: auto; /* Pushes button to the bottom */
+}
+
+.details-button:hover {
+    background-color: var(--color-dark-slate-light);
+}
+
+/* --- Final Banner Section --- */
+.final-banner {
+    background-color: #376363;
+    position: relative;
+    display: none; /* Hidden on mobile */
+}
+
+
+/* --- Call to Action Section --- */
+.page-cta-section {
+    background-color: #f7f9f8;
+    padding: 4rem 1rem;
+}
+
+.page-cta-headline {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 auto 2rem auto;
+    max-width: 35ch;
+    line-height: 1.3;
+}
+
+.page-cta-bottom-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.page-cta-supporting-text {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+    max-width: 60ch;
+}
+
+
+/* --- Desktop and Larger Screen Adjustments --- */
+@media (min-width: 769px) {
+    .page-hero {
+        min-height: 300px; /* Set a fixed minimum height */
+        padding: 2rem 0; /* Adjust padding for vertical centering */
+    }
+    .page-hero-content h1 {
+        font-size: 3rem;
+    }
+    .page-hero-subheading {
+        font-size: 1.4rem;
+    }
+    .final-banner {
+        display: block; /* Show on desktop */
+    }
+    .page-cta-section {
+        padding-bottom: 150px; /* Add space below CTA for the banner */
+    }
+    .page-cta-bottom-row {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    }
+    .page-cta-supporting-text {
+        text-align: left;
+    }
+}

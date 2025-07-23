@@ -1,1 +1,187 @@
-/* Styles for the Managed Services page */
+/*
+ * ===============================================
+ * PAGE-SPECIFIC STYLES: Managed IT Services
+ * ===============================================
+ */
+
+/* Sets the unique hero image for this page */
+.managed-services-page .page-hero {
+    background-image: url('../images/managed-services/CESServices-Overlay_1920w.jpg');
+}
+
+/* Sets a consistent background color and prepares for the background image */
+.managed-services-page {
+    background-color: #f7f9f8;
+    position: relative; /* Required for the pseudo-element */
+    isolation: isolate; /* Creates a new stacking context to fix z-index issue */
+}
+
+/* This pseudo-element holds the background image and controls its opacity */
+.managed-services-page::before {
+    content: '';
+    position: absolute; /* Makes the image scroll with the page */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/managed-services/Handshake-BGImg-Transparency_1920w.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 70% auto; /* Updated size */
+    opacity: 0.4; /* Updated opacity */
+    z-index: -1; /* Places the image behind the content but in front of the background color */
+}
+
+
+/* Reduces the bottom padding on the heading section */
+.managed-services-page .products-section {
+    padding-bottom: 0;
+    background-color: transparent; /* Makes section transparent to show body background */
+}
+
+/* --- Blurbs Section --- */
+.blurbs-section {
+    padding: 4rem 1rem;
+    background-color: transparent;
+}
+
+.blurbs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.blurb-item {
+    text-align: center;
+}
+
+.blurb-content {
+    background-color: #e0e0e0;
+    padding: 1.5rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Added box shadow */
+    transition: all 0.3s ease; /* Added transition for hover effect */
+}
+
+.blurb-content:hover {
+    transform: scale(1.05); /* Makes the blurb bigger on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Enhances the shadow on hover */
+}
+
+.blurb-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-dark-slate);
+}
+
+.blurb-bullet {
+    width: 30px;
+    height: 30px;
+    color: var(--color-maroon);
+    flex-shrink: 0;
+}
+
+.blurb-support-text {
+    font-size: 1.1rem;
+    color: var(--color-text);
+}
+
+/* --- Page-Specific Final Banner & Tombstone Styles --- */
+.managed-services-page .final-banner {
+    height: 80px;
+}
+
+.managed-services-page .tombstone-container {
+    display: flex;
+    justify-content: space-around; /* This spreads the items out */
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 5%; /* Adjust padding for 4 items */
+    box-sizing: border-box;
+}
+
+.managed-services-page .tombstone {
+    width: 260px; /* Increased width to match other page */
+    height: 170px;
+    background-color: #85CCAA;
+    border-radius: 85px 85px 0 0;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.managed-services-page .tombstone h4 {
+    display: none; /* Hides the title */
+}
+
+.managed-services-page .tombstone p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 1.5rem; /* Increased font size */
+    font-weight: 600; /* Made text bolder */
+    color: white;
+}
+
+/* --- Desktop and Larger Screen Adjustments --- */
+@media (min-width: 992px) {
+    .blurbs-section {
+        padding: 4rem 2rem; /* Removed large bottom padding */
+    }
+
+    .page-cta-section {
+        padding: 4rem 2rem 12rem; /* Added large bottom padding */
+    }
+
+    .blurbs-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem 4rem; /* 2rem row gap, 4rem column gap */
+    }
+
+    /* Adds original padding to the section heading and removes margin */
+    .managed-services-page .products-section .section-heading {
+        font-size: 2.7rem;
+        padding-top: 2rem;
+    }
+
+    /* Aligns the supporting text to the left for left-side blurbs */
+    .blurbs-grid .blurb-item:nth-child(odd) .blurb-support-text {
+        text-align: left;
+    }
+
+    /* Aligns the supporting text to the right for right-side blurbs */
+    .blurbs-grid .blurb-item:nth-child(even) .blurb-support-text {
+        text-align: right;
+    }
+    
+    .blurb-text {
+        flex-grow: 1; /* Allows text to take up available space */
+    }
+
+    /* Aligns text to the right for left-side blurbs */
+    .blurbs-grid .blurb-item:nth-child(odd) .blurb-text {
+        text-align: right;
+        margin-right: 1rem;
+    }
+
+    /* Aligns text to the left for right-side blurbs */
+    .blurbs-grid .blurb-item:nth-child(even) .blurb-text {
+        text-align: left;
+        margin-left: 1rem;
+    }
+        /* Increases font size on the CTA headline */
+    .managed-services-page .page-cta-headline {
+        max-width: none;
+        font-size: 2.2rem; /* Matches the video-surveillance page */
+    }
+}

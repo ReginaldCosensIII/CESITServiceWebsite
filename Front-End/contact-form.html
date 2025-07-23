@@ -86,7 +86,8 @@
                     return;
                 }
                 if (grecaptcha.getResponse() === "") {
-                    alert("Please complete the CAPTCHA to continue.");
+                    // Using a custom alert/modal in a real project is better
+                    console.error("Please complete the CAPTCHA to continue.");
                     event.preventDefault();
                 }
             });
@@ -105,25 +106,31 @@
                 'video': {
                     title: 'Request a Video Surveillance Consultation',
                     description: 'Complete the form below to schedule your free, no-obligation consultation with our security experts.',
-                    message: 'Free Video Surveillance Consultation Request.',
+                    message: 'I am interested in a free video surveillance consultation. Please contact me to discuss our security needs and schedule an appointment.',
+                    buttonText: 'Request My Consultation'
+                },
+                'managed-it': {
+                    title: 'Request a Managed IT Services Consultation',
+                    description: 'Complete the form below to schedule your free, no-obligation consultation with our IT experts.',
+                    message: 'I am interested in learning more about your Managed IT Services. Please contact me for a free consultation.',
                     buttonText: 'Request My Consultation'
                 },
                 'cybersecurity': {
                     title: 'Request a Free Cybersecurity Scan',
                     description: 'Fill out the form to get your comprehensive cybersecurity assessment.',
-                    message: 'Free Cybersecurity Scan Request.',
+                    message: 'I am interested in a free cybersecurity scan for our network. Please contact me to discuss the details and schedule the assessment.',
                     buttonText: 'Request My Free Scan'
                 },
                 'voip': {
                     title: 'Inquire About VoIP Solutions',
                     description: 'Let us know your needs, and we will get back to you with a quote for our VoIP services.',
-                    message: 'Inquiry regarding VoIP Solutions.',
+                    message: 'I am interested in learning more about your VoIP solutions for my business. Please contact me to discuss our communication needs and receive a quote.',
                     buttonText: 'Submit Inquiry'
                 },
                 'call': {
                     title: 'Book a 15-Minute Call',
                     description: 'Schedule a quick 15-minute call to discuss your IT needs with our team.',
-                    message: 'Request for a 15-Minute Call.',
+                    message: 'I would like to schedule a 15-minute call to discuss our IT needs. Please let me know what times are available.',
                     buttonText: 'Schedule My Call'
                 }
                 // You can add more reasons here in the future

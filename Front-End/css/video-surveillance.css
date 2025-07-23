@@ -1,92 +1,41 @@
 /*
  * ===============================================
- * Stylesheet for AI Video Surveillance Page
+ * PAGE-SPECIFIC STYLES: Video Surveillance
  * ===============================================
  */
 
-/* --- Hero Section (Mobile-First) --- */
-.aivs-hero {
-    /* Mobile styles: No background image, solid color background */
-    background-image: none;
-    background-color: #85CCAA; 
-    padding: 4rem 0;
-    text-align: center;
-    position: relative;
-    color: white; /* Set text color to white for all content within */
+/* Sets the unique hero image for this page */
+.video-surveillance-page .page-hero {
+    background-image: url('../images/video-surveillance/AIVS-Overlay_1920w.jpg');
 }
 
-.aivs-hero-content h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin: 0;
-    color: white; 
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+/* --- Page-Specific Product Card Layout --- */
+.video-surveillance-page .products-grid {
+    grid-template-columns: 1fr; /* Forces a single column layout */
+    max-width: 1050px;
+    margin: 0 auto;
 }
 
-.aivs-hero-subheading {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: white;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-    /* This controls the width of the subheading text */
-    max-width: 85ch; 
-    margin: 1rem auto 1rem auto; 
+.video-surveillance-page .product-item {
+    padding: 1.5rem; /* Original padding */
+    transition: all 0.3s ease; /* Added transition for hover effect */
 }
 
-/* The overlay is now completely removed from the page */
-.aivs-hero::before {
-    display: none;
+.video-surveillance-page .product-item:hover {
+    transform: scale(1.03); /* Makes the card slightly bigger on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Enhances the shadow on hover */
 }
 
-.aivs-hero .container {
-    position: relative;
-    z-index: 2;
+.video-surveillance-page .product-image {
+    position: relative; /* Required for the corner accents */
+    padding: 10px;
 }
 
-/* --- Products Section --- */
-.products-section {
-    padding: 4rem 0;
-    /* Light off-white/gray with a hint of green */
-    background-color: #f7f9f8; 
-}
-
-.products-section .section-heading {
-    margin-bottom: 4rem;
-    color: var(--color-dark-slate);
-}
-
-.products-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    max-width: 1050px; /* Constrains the width of the cards container */
-    margin: 0 auto; /* Centers the container */
-}
-
-.product-item {
-    background-color: var(--color-white);
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column; /* Stack image on top of content on mobile */
-    align-items: center;
-    text-align: center;
-}
-
-.product-image {
-    position: relative; /* Required for positioning the corner accents */
-    margin-bottom: 1rem;
-    padding: 10px; /* Add a little space for the accents */
-}
-
-/* New Corner Accents using multiple background gradients */
-.product-image::before {
+/* Page-Specific Style: Adds decorative corner accents to product images */
+.video-surveillance-page .product-image::before {
     content: '';
     position: absolute;
     inset: 0;
-    
-    /* This creates the four-corner effect using gradients */
     background: 
         /* Top-left corner */
         linear-gradient(to right, #e0e0e0 3px, transparent 3px) top left,
@@ -100,78 +49,82 @@
         /* Bottom-right corner */
         linear-gradient(to left, #e0e0e0 3px, transparent 3px) bottom right,
         linear-gradient(to top, #e0e0e0 3px, transparent 3px) bottom right;
-    
     background-size: 30px 30px; /* Size of the corner accents */
     background-repeat: no-repeat;
+    animation: fade-corners 3s infinite; /* Adds the fading animation */
 }
 
-
-.product-image img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block; /* Helps with alignment */
+/* Overrides the global .button-primary padding for this page's product cards */
+.video-surveillance-page .product-item .button-primary {
+    padding: 0.5rem 1.5rem;
 }
 
-.product-content {
+/* Restore original margin for the section heading */
+.video-surveillance-page .products-section .section-heading {
+    margin-bottom: 4rem;
+}
+
+/* --- Page-Specific Final Banner & Tombstone Styles --- */
+.video-surveillance-page .final-banner {
+    height: 80px;
+}
+
+.video-surveillance-page .tombstone-container {
+    display: flex;
+    justify-content: space-around; /* This spreads the items out */
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 15%; /* Adds space from the edges */
+    box-sizing: border-box;
+}
+
+.video-surveillance-page .tombstone {
+    width: 260px;
+    height: 170px;
+    background-color: #85CCAA;
+    border-radius: 85px 85px 0 0;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    flex-grow: 1;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
-.product-content h3 {
-    color: var(--color-maroon);
+.video-surveillance-page .tombstone h4 {
     font-size: 1.5rem;
     margin: 0 0 0.5rem 0;
+    color: #2f4f4f;
+    font-weight: 700;
 }
 
-.product-content p {
-    color: var(--color-text);
-    line-height: 1.6;
-    flex-grow: 1; /* Allows description to take up available space */
-    margin-bottom: 1rem;
+.video-surveillance-page .tombstone p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 1rem;
 }
 
-.details-button {
-    display: inline-block;
-    background-color: var(--color-dark-slate);
-    color: var(--color-white);
-    padding: 0.5rem 1.5rem;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    align-self: center; /* Center on mobile */
-}
 
-.details-button:hover {
-    background-color: var(--color-dark-slate-light);
-    color: var(--color-white);
-}
-
-/* --- Final Banner Section --- */
-.final-banner {
-    display: none; /* Hidden on mobile by default */
-}
-
-/* --- Modal Styles --- */
+/* --- Modal Styles (for "More Details" pop-up) --- */
 .modal {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
-    z-index: 1001; /* Sit on top */
+    z-index: 1001;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
     transition: opacity 0.3s ease;
 }
 
 .modal.active {
-    display: flex; /* Use flexbox for centering */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -180,7 +133,7 @@
     background-color: #fefefe;
     padding: 2rem;
     border: 1px solid #888;
-    width: 80%;
+    width: 90%;
     max-width: 800px;
     border-radius: 8px;
     position: relative;
@@ -230,169 +183,75 @@
 
 
 /* --- Desktop and Larger Screen Adjustments --- */
-@media (min-width: 769px) {
-    .aivs-hero {
-        /* Re-introduce the background image for larger screens */
-        background-image: url('../images/video-surveillance/AIVS-Overlay_1920w.jpg');
-        background-color: #85CCAA; /* Ensures seamless blend with image */
+@media (min-width: 992px) {
+    /* THIS IS THE FIX: Restores original hero background styling */
+    .video-surveillance-page .page-hero {
         background-size: auto 100%;
         background-position: right center;
         background-repeat: no-repeat;
-        padding: 4rem 0;
     }
 
-    .aivs-hero-content h1 {
-        font-size: 3rem;
-    }
-    
-    .aivs-hero-subheading {
-        font-size: 1.4rem;
-    }
-
-    .products-section {
-        padding: 4rem 0;
-        /* Light off-white/gray with a hint of green */
-        background-color: #f7f9f8; 
-        padding-bottom: 2rem;
-    }
-
-    .products-section .section-heading {
-        padding-bottom: 2rem;
-        padding-top: 2rem;
-        color: var(--color-dark-slate);
-    }
-
-    .product-item {
-        flex-direction: row; /* Image on left, content on right */
+    /* Lays out product image and text side-by-side inside the card */
+    .video-surveillance-page .product-item {
+        flex-direction: row;
         text-align: left;
-        align-items: center; /* Vertically center the image and content */
+        align-items: center;
     }
 
-    .product-image {
+    /* Makes the content block a flex column and allows it to grow */
+    .video-surveillance-page .product-content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: 0 1.0rem 0 0; /* Adds space to the left and right of the text */
+    }
+
+    .video-surveillance-page .product-image {
         flex-shrink: 0;
         margin-right: 1.5rem;
         margin-bottom: 0;
     }
 
-    .product-image img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .details-button {
-        align-self: flex-end; /* Align to the right on desktop */
+    .video-surveillance-page .product-image img {
+        width: 120px; /* Original size */
+        height: 120px; /* Original size */
     }
     
-    .final-banner {
-        display: block;
-        background-color: #376363;
-        height: 80px; /* Set a fixed height for the banner */
-        position: relative;
+    .video-surveillance-page .page-cta-section {
+        padding: 3rem 1rem 12rem 1rem; /* Original padding */
     }
 
-    .tombstone-container {
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-end;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 0 15%; /* Add space from the edges */
-        box-sizing: border-box;
+    /* Removes the width constraint and increases font size on the CTA headline */
+    .video-surveillance-page .page-cta-headline {
+        max-width: none;
+        font-size: 2.2rem; /* Original font size */
     }
 
-    .tombstone {       
-        width: 260px;
-        height: 170px;
-        background-color: #85CCAA; /* Slightly darker than dark-slate */
-        border-radius: 85px 85px 0 0; /* Creates the tombstone shape */
-        color: white;
-        text-align: center;
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        box-sizing: border-box;
+    /* Adds original padding to the section heading and removes margin */
+    .video-surveillance-page .products-section .section-heading {
+        font-size: 2.7rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        margin-bottom: 4rem; /* Re-added margin for spacing */
     }
 
-    .tombstone h4 {
-        font-size: 1.5rem;
-        margin: 0 0 0.5rem 0;
-        color: #2f4f4f;
-        font-weight: 700;
-    }
-
-    .tombstone p {
-        margin: 0;
-        line-height: 1.4;
-        font-size: 1rem;
+    /* Correctly aligns the button inside its new flex container */
+    .video-surveillance-page .product-item .button-primary {
+        margin-top: auto; /* Pushes button to the bottom of the card */
+        align-self: flex-end; /* Aligns button to the right */
     }
 
     .modal-body {
-        grid-template-columns: 1fr 1.5fr;
+        grid-template-columns: 1fr 1.5fr; /* Side-by-side layout in modal on desktop */
     }
 }
-/*
- * ===============================================
- * FINAL STYLES FOR VIDEO SURVEILLANCE CTA
- * ===============================================
- */
 
-.vs-cta-section {
-    background-color: #f7f9f8;
-    padding: 0rem 1rem 4rem;
-}
-
-/* Styles the main headline */
-.vs-cta-headline {
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #333;
-    margin: 0 auto 2rem auto; /* Adds space below the headline */
-    max-width: 30ch;
-    line-height: 1.3;
-}
-
-/* This is the container for the text and button row */
-.vs-cta-bottom-row {
-    display: flex;
-    flex-direction: column; /* Stacks items on mobile */
-    align-items: center;
-    gap: 1.5rem;
-}
-
-/* Styles the supporting text paragraph */
-.vs-cta-supporting-text {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.6;
-    text-align: center; /* Center text on mobile */
-    margin: 0;
-    max-width: 60ch;
-}
-
-/* --- Desktop Adjustments --- */
-@media (min-width: 992px) {
-    
-    .vs-cta-section {
-        padding: 3rem 1rem 12rem 1rem; /* Creates space for the tombstones */
+/* Keyframes for the fading corner accents animation */
+@keyframes fade-corners {
+    0%, 100% {
+        opacity: 0.3;
     }
-
-    .vs-cta-headline {
-        font-size: 2.2rem;
-        max-width: none; /* Allows the headline to be a single line */
-    }
-    
-    .vs-cta-bottom-row {
-        flex-direction: row; /* Side-by-side on desktop */
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
-    }
-
-    .vs-cta-supporting-text {
-        text-align: left; /* Aligns text to the left on desktop */
+    50% {
+        opacity: 1;
     }
 }

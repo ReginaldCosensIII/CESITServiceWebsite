@@ -1,10 +1,8 @@
 User-agent: *
-Disallow: /ces-rebuild-documentation/
-Disallow: /contact-form-backend/
-Disallow: /test/
 Disallow: /private/
 Disallow: /dev/
 Disallow: /test/
+Disallow: /base.html
 Allow: /
 
 Sitemap: https://www.cesitservice.com/sitemap.xml
