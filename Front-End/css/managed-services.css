@@ -25,13 +25,50 @@
     width: 100%;
     height: 100%;
     background-image: url('../images/managed-services/Handshake-BGImg-Transparency_1920w.png');
-    background-position: center center;
+    background-position: center 45%; /* This moves the image to the top */
     background-repeat: no-repeat;
-    background-size: 70% auto; /* Updated size */
-    opacity: 0.4; /* Updated opacity */
+    background-size: 75% auto; /* Updated size */
+    opacity: 0.5; /* Updated opacity */
     z-index: -1; /* Places the image behind the content but in front of the background color */
 }
 
+/* -- STYLES FOR SECTION HIGHLIGHT TEXT -- */
+.section-highlight-text {
+    color: var(--color-maroon);
+    font-size: 1.2rem; /* Makes "Discovery" slightly larger */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.95;
+     /* Adjustments to compress spacing */
+    margin-top: -1.5rem;  /* Pulls the element up, reducing top space */
+    margin-bottom: 1rem;   /* Reduced space below the element */
+    line-height: 1.2; /* Sets the spacing between lines */
+    padding-left: 5px; /* Aligns it slightly to the right of the container edge */
+}
+
+/* Makes each span behave like a line break */
+.section-highlight-text span {
+    display: block;
+    
+}
+
+/* Indentation for line 1 (base) */
+.highlight-line-1 {
+    padding-left: 5px;
+}
+
+/* Indentation and emphasis for line 2 */
+.highlight-line-2 {
+    padding-left: 25px;
+    font-size: 1.3rem; /* Makes "Discovery" slightly larger */
+    font-weight: 800;  /* Makes "Discovery" bolder */
+}
+
+/* Indentation for line 3 */
+.highlight-line-3 {
+    padding-left: 45px;
+}
 
 /* Reduces the bottom padding on the heading section */
 .managed-services-page .products-section {
@@ -135,6 +172,11 @@
 
 /* --- Desktop and Larger Screen Adjustments --- */
 @media (min-width: 992px) {
+
+    /* -- STYLES FOR SECTION HIGHLIGHT TEXT -- */
+    .section-highlight-text {
+        margin-bottom: -1rem;   /* Reduced space below the element */
+    }
     .blurbs-section {
         padding: 4rem 2rem; /* Removed large bottom padding */
     }
@@ -184,4 +226,14 @@
         max-width: none;
         font-size: 2.2rem; /* Matches the video-surveillance page */
     }
+}
+
+/* --- Desktop and Larger Screen Adjustments --- */
+@media (min-width: 1600px) {
+
+    /* -- STYLES FOR SECTION HIGHLIGHT TEXT -- */
+    .section-highlight-text {
+        padding-left: 4rem;
+    }
+
 }

@@ -31,11 +31,12 @@
 
 .page-hero-subheading {
     font-size: 1.2rem;
+    font-weight: 500;
     line-height: 1.6;
     color: white;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
     max-width: 85ch; 
-    margin: 1rem auto 0; 
+    margin: 1rem auto 1rem; 
 }
 
 /* --- Products Section --- */
@@ -45,6 +46,7 @@
 }
 
 .products-section .section-heading {
+    font-style: italic;
     margin-bottom: 3rem;
     color: var(--color-dark-slate);
 }
@@ -153,7 +155,7 @@
 /* --- Desktop and Larger Screen Adjustments --- */
 @media (min-width: 769px) {
     .page-hero {
-        min-height: 300px; /* Set a fixed minimum height */
+        min-height: 290px; /* Set a fixed minimum height */
         padding: 2rem 0; /* Adjust padding for vertical centering */
     }
     .page-hero-content h1 {
