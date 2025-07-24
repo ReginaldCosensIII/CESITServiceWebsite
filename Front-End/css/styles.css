@@ -114,22 +114,33 @@ a:hover {
 
 .main-nav-list {
     margin: 0;
-    padding: 0;
+    padding: 0; /* Removed unnecessary padding */
     list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: small;
-    gap: 1rem;
     white-space: nowrap;
 }
 
+.main-nav-list li {
+    margin: 0; /* Let the link's padding handle the spacing */
+}
+
 .main-nav-list a {
-    display: block;
-    padding: .5rem 0;
-    color: var(--color-white);
+    display: block; /* Ensures padding is applied correctly */
+    color: #fff;
     text-decoration: none;
+    font-size: 1.1rem; /* A cleaner, slightly larger font (around 17-18px) */
+    font-weight: 500;
+    padding: 0.4rem 1rem; /* Balanced vertical and horizontal padding */
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.main-nav-list a.active {
     font-weight: bold;
+    text-decoration: underline;
+    color: #ffffff; /* Ensures the color remains white */
 }
 
 .main-nav-list a:hover {
@@ -471,7 +482,7 @@ a:hover {
 
 .featured-quote-section-modern {
     padding: 4rem 0 6rem;
-    background-color: var(--color-bg-light);
+    background-color: white;
     
 }
 
@@ -480,7 +491,7 @@ a:hover {
     overflow: hidden;
     text-align: left;
     height: auto;
-    background-color: var(--color-bg-light);
+    background-color: white;
 }
 
 .quote-card:hover {
@@ -532,7 +543,7 @@ a:hover {
 
 .services-section {
     padding: 4rem 0 2rem;
-    background:  white;
+    background:  var(--color-bg-light);
 }
 
 .text-center { text-align: center; }
@@ -547,6 +558,7 @@ a:hover {
 }
 
 .service-card {
+    background: var(--color-bg-light);
     padding: 2.5rem 2rem;
     position: relative;
     text-align: left;
@@ -644,7 +656,7 @@ a:hover {
 
 .testimonial-section {
     padding: 4rem 0 5rem;
-    background-color: var(--color-bg-light);
+    background-color: white;
 }
 
 .testimonial-grid {
@@ -656,7 +668,7 @@ a:hover {
 }
 
 .testimonial-card {
-    background-color: var(--color-bg-light);
+    background-color: white;
     height: auto;
 }
 

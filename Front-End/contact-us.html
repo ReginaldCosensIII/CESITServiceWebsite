@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/supporting-styles.css">
     <link rel="stylesheet" href="css/contact-us.css">
 </head>
-<body>
+<body class="contact-us-page">
 
     <header class="site-header">
         <div class="header-top">
@@ -42,14 +42,9 @@
                 <ul class="main-nav-list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="managed-services.html">Managed IT Services</a></li>
-                    <li><a href="base.html">Advanced Cybersecurity</a></li>
-                    <li><a href="base.html">Compliance</a></li>
-                    <li><a href="video-surveillance.html">Video Surveillance</a></li>
+                    <li><a href="video-surveillance.html">AI Video Surveillance</a></li>
                     <li><a href="voip-solutions.html">VoIP Solutions</a></li>
-                    <li><a href="base.html">Cloud Solutions</a></li>
-                    <li><a href="base.html">CES Tech Tips</a></li>
-                    <li><a href="base.html">About Us</a></li>
-                    <li><a href="base.html">Testimonials</a></li>
+                    <li><a href="contact-us.html" class="active">Contact Us</a></li>
                 </ul>
             </div>
         </nav>
@@ -75,11 +70,13 @@
                                 <span>Send Us a Message</span>
                             </h2>
                             <p>Complete the form below and we'll get back to you shortly.</p>
+                            <!-- Keap form with all fields -->
                             <form id="keapForm" accept-charset="UTF-8" action="https://nks984.infusionsoft.com/app/form/process/a1087e9c3bd1f0d3fafcfb1f88a3bbcd" method="POST" class="contact-form">
                                 <input type="text" name="honeypot" class="honeypot" autocomplete="off" />
                                 <input name="inf_form_xid" type="hidden" value="a1087e9c3bd1f0d3fafcfb1f88a3bbcd" />
                                 <input name="inf_form_name" type="hidden" value="Contact Us Web Form" />
                                 <input name="infusionsoft_version" type="hidden" value="1.70.0.575793" />
+                                
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label for="inf_field_FirstName">First Name *</label>
@@ -90,14 +87,28 @@
                                         <input id="inf_field_LastName" name="inf_field_LastName" type="text" required />
                                     </div>
                                 </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="inf_field_Company">Company</label>
+                                        <input id="inf_field_Company" name="inf_field_Company" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inf_field_Phone1">Phone</label>
+                                        <input id="inf_field_Phone1" name="inf_field_Phone1" type="text" />
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="inf_field_Email">Email *</label>
                                     <input id="inf_field_Email" name="inf_field_Email" type="email" required />
                                 </div>
+                                
                                 <div class="form-group">
                                     <label for="inf_custom_MessageDescription">Message</label>
                                     <textarea id="inf_custom_MessageDescription" name="inf_custom_MessageDescription" rows="5"></textarea>
                                 </div>
+                                
                                 <div class="form-group">
                                     <button id="submit-button" type="submit" class="button-primary">Submit</button>
                                 </div>
@@ -211,7 +222,7 @@
         </div>
         <div class="footer-bottom-bar">
             <div class="container">
-                <p>© 2025 Computer Enhancement Systems, Inc. All Rights Reserved.</p>
+                <p>&copy; 2025 Computer Enhancement Systems, Inc. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
