@@ -1,0 +1,220 @@
+/*
+ * ===============================================
+ * PAGE-SPECIFIC STYLES: Contact Us
+ * ===============================================
+ */
+
+/* --- Main Page Layout --- */
+
+.contact-hero {
+    min-height: 25vh; /* Mobile height for the contact page hero */
+}
+
+.contact-main-section {
+    padding: 4rem 1rem;
+    background-color: #f8f9fa; /* Light grey background to make cards stand out */
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.contact-left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; /* Space between the form and FAQ cards */
+}
+
+/* --- Shared Card Styles --- */
+
+.contact-form-container,
+.contact-info-block,
+.map-container,
+.directions-block,
+.faq-container-card {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.contact-form-container:hover,
+.contact-info-block:hover,
+.map-container:hover,
+.directions-block:hover,
+.faq-container-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Headings and Icons --- */
+
+.heading-with-icon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-dark-slate);
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.contact-page-icon {
+    width: 36px;
+    height: 36px;
+    fill: var(--color-maroon);
+    flex-shrink: 0;
+}
+
+/* --- Form Specifics --- */
+
+.contact-form-container p {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.contact-form label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-maroon);
+    box-shadow: 0 0 0 3px rgba(102, 0, 51, 0.1);
+}
+
+.honeypot {
+    display: none !important;
+}
+
+/* --- Right Column Specifics --- */
+
+.contact-info-block,
+.map-container,
+.directions-block {
+    padding: 2rem; /* Overriding the general card padding for these specific blocks */
+    margin-bottom: 2rem;
+}
+
+.directions-block {
+    margin-bottom: 0; /* Remove margin from last block */
+}
+
+.contact-info-block address {
+    font-style: normal;
+    line-height: 1.8;
+}
+
+.map-container {
+    padding: 0;
+    overflow: hidden; /* Ensures the iframe corners are rounded */
+}
+
+
+/* --- FAQ Accordion --- */
+
+.faq-item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item summary {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 1.2rem 0.5rem;
+    cursor: pointer;
+    list-style: none; /* Hide default triangle */
+    position: relative;
+    transition: background-color 0.2s ease;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary:hover {
+    background-color: #f8f9fa;
+}
+
+.faq-item summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-maroon);
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 1rem 1.5rem 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* -- STYLES FOR FAQ SERVICE AREA LIST -- */
+
+.service-area-list {
+    padding-left: 1.5rem; /* Adds indentation for the bullets */
+    margin-top: 0.5rem;   /* Adds a little space below the "Our Service Area Includes:" text */
+}
+
+/* --- Responsive Adjustments --- */
+@media (min-width: 992px) {
+    .contact-hero {
+        min-height: 28vh;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1.2fr 1fr; /* Form/FAQ on left, info on right */
+        gap: 4rem;
+        align-items: start;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
