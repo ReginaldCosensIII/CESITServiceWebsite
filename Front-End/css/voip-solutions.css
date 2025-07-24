@@ -1,1 +1,72 @@
-/* Styles for the VoIP Solutions page */
+/*
+ * ===============================================
+ * PAGE-SPECIFIC STYLES: VoIP Solutions
+ * ===============================================
+ */
+
+/* Sets the unique hero image and color for this page */
+.voip-solutions-page .page-hero {
+    /* You can replace this with a background-image later */
+    background-image: none;
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- Page-Specific Tombstone Styles --- */
+.voip-solutions-page .final-banner {
+    height: 80px;
+}
+
+.voip-solutions-page .tombstone-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 15%;
+    box-sizing: border-box;
+}
+
+.voip-solutions-page .tombstone {
+    width: 260px;
+    height: 170px;
+    background-color: #85CCAA;
+    border-radius: 85px 85px 0 0;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.voip-solutions-page .tombstone h4 {
+    display: none; /* Hides the title if not needed */
+}
+
+.voip-solutions-page .tombstone p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+}
+
+/* Desktop adjustments if needed */
+@media (min-width: 992px) {
+    .voip-solutions-page .page-cta-section {
+        padding-bottom: 12rem; /* Ensure space for the banner */
+    }
+
+    .voip-solutions-page .page-cta-headline {
+        max-width: none; /* Allows the headline to take up more space */
+    }
+
+    .voip-solutions-page .products-section .section-heading {
+        font-size: 2.7rem; /* Increases font size for consistency */
+        padding: 2rem 0 3rem; /* Adds spacing to match other pages */
+    }
+}
