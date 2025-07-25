@@ -85,3 +85,29 @@ document.addEventListener('DOMContentLoaded', () => {
         startSlideShow(); // Start the slideshow automatically
     }
 });
+
+/*
+ * ===============================================
+ * Accordion Script
+ * ===============================================
+ */
+document.addEventListener('DOMContentLoaded', function () {
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            // Toggle the 'active' class on the clicked header
+            this.classList.toggle('active');
+
+            // Get the content panel that is the next element
+            const content = this.nextElementSibling;
+
+            // If the panel is open, close it. If it's closed, open it.
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } 
+        });
+    });
+});

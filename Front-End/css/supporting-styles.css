@@ -41,7 +41,7 @@
 
 /* --- Products Section --- */
 .products-section {
-    padding: 4rem 1rem;
+    padding: 4rem 1rem 0.0rem;
     background-color: #f7f9f8; 
 }
 
@@ -164,6 +164,10 @@
     .page-hero-subheading {
         font-size: 1.4rem;
     }
+    .products-section {
+        padding: 4rem 1rem;
+        background-color: #f7f9f8; 
+    }
     .final-banner {
         display: block; /* Show on desktop */
     }
@@ -179,4 +183,23 @@
     .page-cta-supporting-text {
         text-align: left;
     }
+}
+
+/*
+ * ===============================================
+ * Mobile-Specific Hero Section Adjustments
+ * ===============================================
+ */
+
+/* On screens 768px or smaller, remove the hero background image */
+@media (max-width: 768px) {
+    .page-hero {
+        background-image: none !important;
+    }
+
+    /* Specifically hide the background image pseudo-element on the managed services page */
+    .managed-services-page::before {
+        background-image: none !important;
+    }
+    
 }
