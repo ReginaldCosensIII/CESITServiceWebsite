@@ -78,7 +78,7 @@
 
 /* --- Blurbs Section --- */
 .blurbs-section {
-    padding: 4rem 1rem;
+    padding: 4rem 1rem 1rem;
     background-color: transparent;
 }
 
@@ -170,6 +170,16 @@
     color: white;
 }
 
+.blurbs-section {
+    padding: 4rem 1rem 1rem;
+    background-color: transparent;
+}
+
+@media (min-width: 557px) {
+    .blurbs-section {
+        padding: 4rem 1rem;
+    }
+}
 /* --- Desktop and Larger Screen Adjustments --- */
 @media (min-width: 992px) {
 
