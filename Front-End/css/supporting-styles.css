@@ -3,8 +3,7 @@
  * SHARED STYLESHEET FOR SERVICE PAGES
  * ===============================================
  * Contains common layouts for the hero, products,
- * and CTA sections. Tombstone styles are handled
- * in page-specific stylesheets.
+ * and CTA sections.
  */
 
 /* --- Page Hero Section --- */
@@ -111,14 +110,6 @@
     background-color: var(--color-dark-slate-light);
 }
 
-/* --- Final Banner Section --- */
-.final-banner {
-    background-color: #376363;
-    position: relative;
-    display: none; /* Hidden on mobile */
-}
-
-
 /* --- Call to Action Section --- */
 .page-cta-section {
     background-color: #f7f9f8;
@@ -151,6 +142,60 @@
     max-width: 60ch;
 }
 
+/* * ===============================================
+ * NEW SHARED STYLES FOR FINAL BANNER & TOMBSTONES
+ * ===============================================
+ */
+
+/* --- Final Banner Section (SHARED) --- */
+.final-banner {
+    background-color: #376363;
+    position: relative;
+    height: 80px; /* Default height for the banner area */
+    display: none; /* Hidden on mobile by default */
+}
+
+/* Base styles for a 3-item tombstone layout */
+.tombstone-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 15%; /* Provides good spacing for 3 items */
+    box-sizing: border-box;
+}
+
+.tombstone {
+    width: 260px;
+    height: 170px;
+    background-color: #85CCAA;
+    border-radius: 85px 85px 0 0;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.tombstone h4 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+    color: #2f4f4f;
+    font-weight: 700;
+}
+
+.tombstone p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 1.1rem; /* Adjusted for better readability */
+    font-weight: 600;
+}
+
 
 /* --- Desktop and Larger Screen Adjustments --- */
 @media (min-width: 769px) {
@@ -169,7 +214,7 @@
         background-color: #f7f9f8; 
     }
     .final-banner {
-        display: block; /* Show on desktop */
+        display: block; /* Show banner on desktop */
     }
     .page-cta-section {
         padding-bottom: 150px; /* Add space below CTA for the banner */
