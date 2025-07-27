@@ -1,101 +1,151 @@
-/*
- * ===============================================
- * PAGE-SPECIFIC STYLES: Testimonials
- * ===============================================
- */
+/* --- Testimonials Page Specific Styles --- */
 
+/* Hero Section for Testimonials Page */
 .testimonials-hero {
     min-height: 25vh; /* Mobile height for the contact page hero */
 }
-/* Sets a light background for the main content area */
+
+.section-heading {
+    font-style: italic;
+}
+
 .testimonials-grid-section {
     padding: 4rem 1rem;
     background-color: #f8f9fa;
 }
 
-/* Creates a responsive grid for the testimonial cards */
+/* Single-column grid layout */
 .testimonial-grid-full-page {
     display: grid;
-    /* Default to a single column on mobile devices */
     grid-template-columns: 1fr;
-    gap: 2.5rem;
-    max-width: 1200px;
+    gap: 2rem;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-/* --- Tablet and Desktop Layout --- */
+/* --- Modern Quote Card Styles --- */
+.quote-card {
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease-in-out;
+}
+
+.quote-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.quote-card-icon {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100px;
+    height: 100px;
+    color: #85CCAA;
+    opacity: 0.5;
+}
+
+/* --- Fading Effect Styles --- */
+.quote-card-text-wrapper {
+    /* Increased height to show more text */
+    max-height: 170px; 
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
+}
+
+/* Fading mask is now applied ONLY if the .is-truncated class is present */
+.quote-card-text-wrapper.is-truncated {
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+/* When expanded, remove the mask */
+.quote-card-text-wrapper.expanded {
+    max-height: 1200px; /* Increased to accommodate very long text */
+    -webkit-mask-image: none;
+    mask-image: none;
+}
+
+.quote-card-text {
+    padding-left: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin: 0;
+    overflow-wrap: break-word;
+}
+
+.read-more-btn {
+    display: none; /* Hidden by default, JS will show it if needed */
+    background: none;
+    border: none;
+    color: var(--color-maroon);
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* --- Attribution and Tombstone Styles --- */
+.quote-card-attribution {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    font-weight: 600;
+}
+
+.attribution-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f0f0f0;
+}
+
+.attribution-text {
+    text-align: left;
+}
+
+.attribution-name {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--color-dark-slate);
+}
+
+.attribution-company {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-maroon);
+    margin-top: 0.25rem;
+}
+
+.tombstone p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
 @media (min-width: 768px) {
-    /* On screens 768px and wider, switch to a 2-column grid */
-    .testimonial-grid-full-page {
-        grid-template-columns: repeat(2, 1fr);
-    }
+
     .testimonials-hero {
         min-height: 28vh;
+    }
+    .section-heading {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
     /* Add bottom padding only when the final banner is visible */
     .testimonials-grid-section {
         padding-bottom: 12rem;
     }
-    
-}
-
-/*
- * ===============================================
- * FINAL TESTIMONIAL CARD STYLE: SPEECH BUBBLE
- * ===============================================
- */
-
-/* This is the main card style for the page */
-.testimonial-card {
-    position: relative;
-    background-color: #ffffff; /* Set background to white */
-    border-radius: 20px; /* Softer, rounded corners */
-    height: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-/* This creates the speech bubble "tail" */
-.testimonial-card::after {
-    content: '';
-    position: absolute;
-    bottom: -25px; /* Position the tail at the bottom */
-    left: 40px;  /* Indent the tail from the left */
-    width: 0;
-    height: 0;
-    /* Increased border size for a larger, more prominent tail */
-    border: 30px solid transparent;
-    /* This is the crucial fix: border color now matches the white card background */
-    border-top-color: #ffffff;
-    border-bottom: 0;
-    border-left: 0;
-    /* This filter adds a subtle shadow to the tail itself to help it stand out */
-    filter: drop-shadow(2px 3px 2px rgba(0,0,0,0.07));
-}
-
-.testimonial-text {
-    flex-grow: 1; /* Ensures the card footer stays at the bottom */
-}
-
-.testimonial-stars {
-    color: #FBBF24; /* Gold color for stars */
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-/*
- * ===============================================
- * TOMBSTONE STYLE OVERRIDES FOR THIS PAGE
- * ===============================================
- */
-
-/* Hides the h4 to create the single prominent text look */
-.testimonials-page .tombstone h4 {
-    display: none;
-}
-
-/* Increases the font size of the p tag to match other pages */
-.testimonials-page .tombstone p {
-    font-size: 1.5rem;
-    font-weight: 600;
 }
