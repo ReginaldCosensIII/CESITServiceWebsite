@@ -92,6 +92,13 @@
     margin-top: 1rem;
     text-align: center;
     width: 100%;
+    /* Add this for a smooth animation */
+    transition: transform 0.3s ease-in-out;
+}
+
+.read-more-btn:hover {
+    /* This makes the button slightly larger on hover */
+    transform: scale(1.05);
 }
 
 /* --- Attribution and Tombstone Styles --- */
