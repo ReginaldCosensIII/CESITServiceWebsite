@@ -2,6 +2,7 @@
 :root {
     --color-dark-slate: #2f4f4f;
     --color-dark-slate-light: #4a7c7c;
+    --color-light-green: #85CCAA;
     --color-maroon: #660033;
     --color-bg-light: #f8f9fa;
     --color-text: #333;
@@ -207,7 +208,7 @@ a:hover {
     padding: 1rem 0 6rem 0;
     box-sizing: border-box;
     color: var(--color-text);
-    background: linear-gradient(145deg, var(--color-dark-slate-light), var(--color-white) 50%);
+    background: linear-gradient(145deg, var(--color-light-green), var(--color-white) 50%);
 }
 
 .hero-gradient-overlay {
@@ -505,8 +506,8 @@ a:hover {
     left: -10px;
     width: 100px;
     height: 100px;
-    color: var(--color-dark-slate);
-    opacity: 0.1;
+    color: var(--color-light-green);
+    opacity: 0.5;
 }
 
 .quote-card-text {
