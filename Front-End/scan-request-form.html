@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/scan-request-form.css" />
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="popup-body">
 
@@ -76,11 +75,6 @@
                 <input id="inf_field_Phone1" name="inf_field_Phone1" type="text" />
             </div>
 
-            <!-- Google reCAPTCHA Element -->
-            <div class="recaptcha-wrapper">
-                <div class="g-recaptcha" data-sitekey="6Lcp6H0rAAAAAA7Dd0kjQr4IRBcZDHTb_fFVByXJ"></div>
-            </div>
-
             <div class="form-group">
                 <button type="submit" class="btn-submit button-primary">Request My Free Scan</button>
             </div>
@@ -98,16 +92,10 @@
     <script src="https://wnb607.infusionsoft.app/app/webform/overwriteRefererJs" type="text/javascript"></script>
 
     <script>
-        // Form validation for honeypot and reCAPTCHA
         document.getElementById('keapScanForm').addEventListener('submit', function(event) {
             const honeypot = document.querySelector('input[name="honeypot"]').value;
             if (honeypot) {
-                event.preventDefault(); // Silently stop spam
-                return;
-            }
-            if (grecaptcha.getResponse() === "") {
-                alert("Please complete the CAPTCHA to continue.");
-                event.preventDefault(); // Stop submission if reCAPTCHA is not filled
+                event.preventDefault();
             }
         });
     </script>

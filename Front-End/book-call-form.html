@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/book-call-form.css" />
     
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="popup-body">
 
@@ -55,10 +54,6 @@
                 <input id="inf_field_Phone1" name="inf_field_Phone1" type="tel" required />
             </div>
 
-            <div class="recaptcha-wrapper">
-                <div class="g-recaptcha" data-sitekey="6Lcp6H0rAAAAAA7Dd0kjQr4IRBcZDHTb_fFVByXJ"></div>
-            </div>
-
             <div class="form-group">
                 <button type="submit" class="btn-submit button-primary">Schedule My Call</button>
             </div>
@@ -73,11 +68,6 @@
         document.getElementById('keapForm').addEventListener('submit', function(event) {
             const honeypot = document.querySelector('input[name="honeypot"]').value;
             if (honeypot) {
-                event.preventDefault();
-                return;
-            }
-            if (grecaptcha.getResponse() === "") {
-                alert("Please complete the CAPTCHA to continue.");
                 event.preventDefault();
             }
         });
