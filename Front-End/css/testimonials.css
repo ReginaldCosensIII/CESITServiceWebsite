@@ -55,7 +55,7 @@
     /* Increased height to show more text */
     max-height: 170px; 
     overflow: hidden;
-    transition: max-height 0.7s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
 }
 
 /* Fading mask is now applied ONLY if the .is-truncated class is present */

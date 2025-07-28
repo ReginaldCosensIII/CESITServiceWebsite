@@ -1,8 +1,11 @@
+# Instructions for all web crawlers
 User-agent: *
-Disallow: /private/
-Disallow: /dev/
-Disallow: /test/
-Disallow: /base.html
-Allow: /
 
+# Allow all parts of the site to be crawled
+Disallow: /book-call-form.html
+Disallow: /contact-form.html
+Disallow: /scan-request-form.html
+Disallow: /thank-you.html
+
+# Location of the sitemap
 Sitemap: https://www.cesitservice.com/sitemap.xml
