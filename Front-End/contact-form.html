@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/contact-forms.css" />
     
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="popup-body">
 
@@ -61,10 +60,6 @@
                 <textarea id="inf_custom_MessageDescription" name="inf_custom_MessageDescription" rows="5"></textarea>
             </div>
 
-            <div class="recaptcha-wrapper">
-                <div class="g-recaptcha" data-sitekey="6Lcp6H0rAAAAAA7Dd0kjQr4IRBcZDHTb_fFVByXJ"></div>
-            </div>
-
             <div class="form-group">
                 <button id="submit-button" type="submit" class="btn-submit button-primary">Submit</button>
             </div>
@@ -82,12 +77,6 @@
             document.getElementById('keapForm').addEventListener('submit', function(event) {
                 const honeypot = document.querySelector('input[name="honeypot"]').value;
                 if (honeypot) {
-                    event.preventDefault();
-                    return;
-                }
-                if (grecaptcha.getResponse() === "") {
-                    // Using a custom alert/modal in a real project is better
-                    console.error("Please complete the CAPTCHA to continue.");
                     event.preventDefault();
                 }
             });
