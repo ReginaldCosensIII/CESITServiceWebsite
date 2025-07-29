@@ -5,7 +5,6 @@ User-agent: *
 Disallow: /book-call-form.html
 Disallow: /contact-form.html
 Disallow: /scan-request-form.html
-Disallow: /thank-you.html
 
 # Location of the sitemap
 Sitemap: https://www.cesitservice.com/sitemap.xml
