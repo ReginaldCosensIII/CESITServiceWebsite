@@ -831,7 +831,7 @@ main {
     min-height: 60vh;
     max-height: 700px;
     padding: 1.5rem 0 7rem 0;
-    background-image: url('../images/ces_homepage_image.jpeg');
+    background-image: url('../images/ces_homepage_image.jpg');
     background-size: cover;
     background-position: right center;
 }
