@@ -1,0 +1,180 @@
+/*
+ * ===============================================
+ * Stylesheet for Scan Request Pop-up Form
+ * ===============================================
+ */
+
+/* --- Base Layout --- */
+.popup-body {
+    background-color: var(--color-bg-light);
+    font-family: var(--font-family-base);
+    color: var(--color-text);
+    margin: 0;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.popup-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* --- Simplified Header --- */
+.popup-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1.5rem;
+}
+
+.popup-logo {
+    max-height: 50px;
+    margin-bottom: 1rem;
+}
+
+.popup-header h1 {
+    font-size: 1.8rem;
+    color: var(--color-dark-slate);
+    margin: 0;
+}
+
+.popup-contact-info {
+    margin-top: 0;
+    margin-bottom: 1.5rem; /* Adds space between phone and heading */
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-maroon);
+}
+
+.popup-contact-info a {
+    color: inherit;
+    text-decoration: none;
+}
+.popup-contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* --- Description Details Section --- */
+.form-description-details {
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.form-description-details h3 {
+    font-size: 1.1rem;
+    color: var(--color-dark-slate);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.form-description-details ul,
+.form-description-details ol {
+    text-align: left;
+    display: inline-block;
+    padding-left: 20px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-description-details li {
+    margin-bottom: 0.5rem;
+}
+
+.form-cta-text {
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-maroon);
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* --- Compact Form Styling --- */
+.contact-form {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+@media (min-width: 500px) {
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.contact-form label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"] {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus {
+    outline: none;
+    border-color: var(--color-maroon);
+    box-shadow: 0 0 0 3px rgba(102, 0, 51, 0.1);
+}
+
+.honeypot {
+    display: none !important;
+}
+
+.recaptcha-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0;
+    transform: scale(0.95);
+    transform-origin: center;
+}
+
+.btn-submit {
+    padding: 0.8rem 2.5rem; /* Adjust padding for a better shape */
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    align-self: center; /* This centers the button */
+}
+
+/* --- Simplified Footer --- */
+.popup-footer {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.popup-footer p {
+    margin: 0;
+}

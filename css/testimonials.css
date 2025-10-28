@@ -1,0 +1,158 @@
+/* --- Testimonials Page Specific Styles --- */
+
+/* Hero Section for Testimonials Page */
+.testimonials-hero {
+    min-height: 25vh; /* Mobile height for the contact page hero */
+}
+
+.section-heading {
+    font-style: italic;
+}
+
+.testimonials-grid-section {
+    padding: 4rem 1rem;
+    background-color: #f8f9fa;
+}
+
+/* Single-column grid layout */
+.testimonial-grid-full-page {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* --- Modern Quote Card Styles --- */
+.quote-card {
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease-in-out;
+}
+
+.quote-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.quote-card-icon {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100px;
+    height: 100px;
+    color: #85CCAA;
+    opacity: 0.5;
+}
+
+/* --- Fading Effect Styles --- */
+.quote-card-text-wrapper {
+    /* Increased height to show more text */
+    max-height: 170px; 
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+/* Fading mask is now applied ONLY if the .is-truncated class is present */
+.quote-card-text-wrapper.is-truncated {
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+/* When expanded, remove the mask */
+.quote-card-text-wrapper.expanded {
+    max-height: 1200px; /* Increased to accommodate very long text */
+    -webkit-mask-image: none;
+    mask-image: none;
+}
+
+.quote-card-text {
+    padding-left: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin: 0;
+    overflow-wrap: break-word;
+}
+
+.read-more-btn {
+    display: none; /* Hidden by default, JS will show it if needed */
+    background: none;
+    border: none;
+    color: var(--color-maroon);
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+    /* Add this for a smooth animation */
+    transition: transform 0.3s ease-in-out;
+}
+
+.read-more-btn:hover {
+    /* This makes the button slightly larger on hover */
+    transform: scale(1.05);
+}
+
+/* --- Attribution and Tombstone Styles --- */
+.quote-card-attribution {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    font-weight: 600;
+}
+
+.attribution-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f0f0f0;
+}
+
+.attribution-text {
+    text-align: left;
+}
+
+.attribution-name {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--color-dark-slate);
+}
+
+.attribution-company {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-maroon);
+    margin-top: 0.25rem;
+}
+
+.tombstone p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+
+    .testimonials-hero {
+        min-height: 28vh;
+    }
+    .section-heading {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    /* Add bottom padding only when the final banner is visible */
+    .testimonials-grid-section {
+        padding-bottom: 12rem;
+    }
+}

@@ -1,0 +1,47 @@
+/* css/about-us.css */
+
+.about-us-hero {
+    background-image: linear-gradient(rgba(#85CCAA), rgba(0, 0, 0, 0.5)), url('/images/location/frederick-office.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.about-content-section {
+    padding: 4rem 1rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark-slate);
+}
+
+.about-text-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.about-image-content {
+    display: grid;
+    gap: 2rem;
+}
+
+.about-us-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 992px) {
+    .about-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+}

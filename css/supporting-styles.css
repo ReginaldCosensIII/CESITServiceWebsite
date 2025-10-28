@@ -1,0 +1,262 @@
+/*
+ * ===============================================
+ * SHARED STYLESHEET FOR SERVICE PAGES
+ * ===============================================
+ * Contains common layouts for the hero, products,
+ * and CTA sections.
+ */
+
+/* --- Page Hero Section --- */
+.page-hero {
+    background-color: #85CCAA; /* Fallback color */
+    background-size: cover;
+    background-position: center center;
+    padding: 4rem 1rem;
+    text-align: center;
+    position: relative;
+    color: white;
+    display: flex; /* Enables flexbox for centering */
+    align-items: center; /* Vertically centers content */
+    justify-content: center; /* Horizontally centers content */
+}
+
+.page-hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: white; 
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.page-hero-subheading {
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1.6;
+    color: var(--color-dark-slate);    
+    max-width: 85ch; 
+    margin: 1rem auto 1rem; 
+}
+
+/* --- Products Section --- */
+.products-section {
+    padding: 4rem 1rem 0.0rem;
+    background-color: #f7f9f8; 
+}
+
+.products-section .section-heading {
+    font-style: italic;
+    margin-bottom: 3rem;
+    color: var(--color-dark-slate);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-item {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.product-image {
+    margin-bottom: 1.5rem;
+}
+
+.product-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px; /* Changed from 50% to create a square with rounded corners */
+    object-fit: cover;
+}
+
+.product-content h3 {
+    color: var(--color-maroon);
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.product-content p {
+    color: var(--color-text);
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.details-button {
+    display: inline-block;
+    background-color: var(--color-dark-slate);
+    color: var(--color-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    margin-top: auto; /* Pushes button to the bottom */
+}
+
+.details-button:hover {
+    background-color: var(--color-dark-slate-light);
+}
+
+/* --- Call to Action Section --- */
+.page-cta-section {
+    background-color: #f7f9f8;
+    padding: 4rem 1rem;
+}
+
+.page-cta-headline {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 auto 2rem auto;
+    max-width: 35ch;
+    line-height: 1.3;
+}
+
+.page-cta-bottom-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.page-cta-supporting-text {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+    max-width: 60ch;
+}
+
+/* * ===============================================
+ * NEW SHARED STYLES FOR FINAL BANNER & TOMBSTONES
+ * ===============================================
+ */
+
+/* --- Final Banner Section (SHARED) --- */
+.final-banner {
+    background-color: #376363;
+    position: relative;
+    height: 80px; /* Default height for the banner area */
+    display: none; /* Hidden on mobile by default */
+}
+
+/* Base styles for a 3-item tombstone layout */
+.tombstone-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 15%; /* Provides good spacing for 3 items */
+    box-sizing: border-box;
+}
+
+.tombstone {
+    width: 260px;
+    height: 170px;
+    background-color: #85CCAA;
+    border-radius: 85px 85px 0 0;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.tombstone h4 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+    color: #2f4f4f;
+    font-weight: 700;
+}
+
+.tombstone p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 1.1rem; /* Adjusted for better readability */
+    font-weight: 600;
+}
+
+/* Progressive consent (newsletter) */
+.consent-row {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  transition: max-height .25s ease, opacity .25s ease;
+}
+.consent-row.show {
+  max-height: 80px;
+  opacity: 1;
+}
+
+/* --- Desktop and Larger Screen Adjustments --- */
+@media (min-width: 769px) {
+    .page-hero {
+        min-height: 290px; /* Set a fixed minimum height */
+        padding: 2rem 0; /* Adjust padding for vertical centering */
+    }
+    .page-hero-content h1 {
+        font-size: 3rem;
+    }
+    .page-hero-subheading {
+        font-size: 1.4rem;
+    }
+    .products-section {
+        padding: 4rem 1rem;
+        background-color: #f7f9f8; 
+    }
+    .final-banner {
+        display: block; /* Show banner on desktop */
+    }
+    .page-cta-section {
+        padding-bottom: 150px; /* Add space below CTA for the banner */
+    }
+    .page-cta-bottom-row {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    }
+    .page-cta-supporting-text {
+        text-align: left;
+    }
+}
+
+/*
+ * ===============================================
+ * Mobile-Specific Hero Section Adjustments
+ * ===============================================
+ */
+
+/* On screens 768px or smaller, remove the hero background image */
+@media (max-width: 768px) {
+    .page-hero {
+        background-image: none !important;
+    }
+
+    /* Specifically hide the background image pseudo-element on the managed services page */
+    .managed-services-page::before {
+        background-image: none !important;
+    }
+    
+}

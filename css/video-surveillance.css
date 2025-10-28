@@ -1,0 +1,248 @@
+/*
+ * ===============================================
+ * PAGE-SPECIFIC STYLES: Video Surveillance
+ * ===============================================
+ */
+
+/* Sets the unique hero image for this page */
+.video-surveillance-page .page-hero {
+    background-image: url('/images/video-surveillance/AIVS-Overlay_1920w.jpg');
+}
+
+/* --- Page-Specific Product Card Layout --- */
+.video-surveillance-page .products-grid {
+    grid-template-columns: 1fr; /* Forces a single column layout */
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.video-surveillance-page .product-item {
+    padding: 2.5rem; /* Original padding */
+    transition: all 0.3s ease; /* Added transition for hover effect */
+}
+
+.video-surveillance-page .product-item:hover {
+    transform: scale(1.03); /* Makes the card slightly bigger on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Enhances the shadow on hover */
+}
+
+.video-surveillance-page .product-image {
+    position: relative; /* Required for the corner accents */
+    padding: 10px;
+}
+
+/* Page-Specific Style: Adds decorative corner accents to product images */
+.video-surveillance-page .product-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        /* Top-left corner */
+        linear-gradient(to right, #e0e0e0 3px, transparent 3px) top left,
+        linear-gradient(to bottom, #e0e0e0 3px, transparent 3px) top left,
+        /* Top-right corner */
+        linear-gradient(to left, #e0e0e0 3px, transparent 3px) top right,
+        linear-gradient(to bottom, #e0e0e0 3px, transparent 3px) top right,
+        /* Bottom-left corner */
+        linear-gradient(to right, #e0e0e0 3px, transparent 3px) bottom left,
+        linear-gradient(to top, #e0e0e0 3px, transparent 3px) bottom left,
+        /* Bottom-right corner */
+        linear-gradient(to left, #e0e0e0 3px, transparent 3px) bottom right,
+        linear-gradient(to top, #e0e0e0 3px, transparent 3px) bottom right;
+    background-size: 30px 30px; /* Size of the corner accents */
+    background-repeat: no-repeat;
+    animation: fade-corners 3s infinite; /* Adds the fading animation */
+}
+
+/* Overrides the global .button-primary padding for this page's product cards */
+.video-surveillance-page .product-item .button-primary {
+    padding: 0.5rem 1.5rem;
+}
+
+/* Restore original margin for the section heading */
+.video-surveillance-page .products-section .section-heading {
+    margin-bottom: 4rem;
+}
+
+/* --- Page-Specific Final Banner & Tombstone Styles --- */
+.video-surveillance-page .final-banner {
+    height: 80px;
+}
+
+.video-surveillance-page .tombstone-container {
+    display: flex;
+    justify-content: space-around; /* This spreads the items out */
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 15%; /* Adds space from the edges */
+    box-sizing: border-box;
+}
+
+.video-surveillance-page .tombstone {
+    width: 260px;
+    height: 170px;
+    background-color: #85CCAA;
+    border-radius: 85px 85px 0 0;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.video-surveillance-page .tombstone h4 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+    color: #2f4f4f;
+    font-weight: 700;
+}
+
+.video-surveillance-page .tombstone p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 1rem;
+}
+
+
+/* --- Modal Styles (for "More Details" pop-up) --- */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 2rem;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 8px;
+    position: relative;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.95);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+.modal-close {
+    color: #aaa;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 28px;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.modal-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.modal-details h2 {
+    color: var(--color-maroon);
+    margin-top: 0;
+}
+
+
+/* --- Desktop and Larger Screen Adjustments --- */
+@media (min-width: 992px) {
+    /* THIS IS THE FIX: Restores original hero background styling */
+    .video-surveillance-page .page-hero {
+        background-size: auto 100%;
+        background-position: right center;
+        background-repeat: no-repeat;
+    }
+
+    /* Lays out product image and text side-by-side inside the card */
+    .video-surveillance-page .product-item {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+    }
+
+    /* Makes the content block a flex column and allows it to grow */
+    .video-surveillance-page .product-content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: 0 1.0rem 0 0; /* Adds space to the left and right of the text */
+    }
+
+    .video-surveillance-page .product-image {
+        flex-shrink: 0;
+        margin-right: 2.5rem;
+        margin-bottom: 0;
+    }
+
+    .video-surveillance-page .product-image img {
+        width: 130px; /* Original size */
+        height: 130px; /* Original size */
+    }
+    
+    .video-surveillance-page .page-cta-section {
+        padding: 3rem 1rem 12rem 1rem; /* Original padding */
+    }
+
+    /* Removes the width constraint and increases font size on the CTA headline */
+    .video-surveillance-page .page-cta-headline {
+        max-width: none;
+        font-size: 2.2rem; /* Original font size */
+    }
+
+    /* Adds original padding to the section heading and removes margin */
+    .video-surveillance-page .products-section .section-heading {
+        font-size: 2.7rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        margin-bottom: 4rem; /* Re-added margin for spacing */
+    }
+
+    /* Correctly aligns the button inside its new flex container */
+    .video-surveillance-page .product-item .button-primary {
+        margin-top: auto; /* Pushes button to the bottom of the card */
+        align-self: flex-end; /* Aligns button to the right */
+    }
+
+    .modal-body {
+        grid-template-columns: 1fr 1.5fr; /* Side-by-side layout in modal on desktop */
+    }
+}
+

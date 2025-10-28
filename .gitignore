@@ -1,21 +1,34 @@
-# .gitignore
+# --- Server-Managed Config & Legacy Apps ---
+# These files/folders live on the server but are NOT part of this
+# static site project. We ignore them to protect them from being
+# overwritten and to keep our repository clean.
 
-# Ignore node_modules if used later
-node_modules/
+# Managed by SysAdmin (live config)
+ipblock.txt
 
-# Ignore log files and temp files
-*.log
-*.tmp
+# Legacy ASP Classic Portals (separate applications)
+remoteportal/
+HelpDesk/
 
-# Ignore .DS_Store (macOS), Thumbs.db (Windows)
+
+# --- GitHub/Git ---
+# Safeguard to prevent Git history from being zipped/deployed
+.git/
+
+
+# --- OS Files ---
 .DS_Store
 Thumbs.db
+Desktop.ini
 
-# Ignore Visual Studio project junk
+
+# --- Common Editor/IDE Files ---
 .vscode/
-*.user
-*.suo
 
-# Ignore publish artifacts (only include if publishing outside repo)
-**/bin/
-**/obj/
+
+# --- Node (if you ever use a local server/build tool) ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
