@@ -1,0 +1,297 @@
+/* ===================================================================
+   BLOG POST PAGES ONLY  (/blog/*)
+   Layout (2-col), article header/body, related cards, sidebar, tags
+   =================================================================== */
+
+/* --- Icons / tiny helpers (used in meta + sidebar headings) --- */
+.icon {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 2;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* Breadcrumb spacing under hero */
+.breadcrumb-navigation { margin-top: 0.5rem; background-color: #f8f9fa;}
+
+/* ===================================================================
+   2-COLUMN LAYOUT (MAIN + SIDEBAR) FOR POST PAGES
+   =================================================================== */
+
+.blog-post-main-content {
+  display: grid;
+  grid-template-columns: 1fr 350px;    /* ~70/30 split on desktop */
+  gap: 3rem;
+  margin-top: 3rem;
+  grid-template-areas:
+    "main sidebar"
+    "related sidebar";
+  align-items: start;                  /* prevents odd overlaps */
+}
+
+/* grid areas */
+.blog-main-content { grid-area: main; }
+.blog-sidebar      { grid-area: sidebar; }
+.related-posts     { grid-area: related; }
+
+/* Let grid children shrink inside their tracks instead of overflowing */
+.blog-main-content,
+.blog-sidebar { min-width: 0; }
+
+/* Stack on mobile: main → sidebar → related */
+@media (max-width: 768px) {
+  .blog-post-main-content {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "sidebar"
+      "related";
+  }
+}
+
+/* ===================================================================
+   ARTICLE HEADER & BODY
+   =================================================================== */
+
+.article-header-full {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.article-hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.article-header-full h1 {
+  font-size: 2.8rem;
+  margin: 0 0 0.5rem;
+  color: var(--color-dark-slate);
+}
+
+.post-meta {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0.25rem 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Tag chips under the header */
+.post-tags {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-pill {
+  display: inline-block;
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.tag-pill:hover { background-color: #dee2e6; color: var(--color-dark-slate); }
+
+/* Article body copy */
+.article-body-full {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-dark-slate);
+}
+
+.article-body-full h2 {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  font-weight: bold;
+}
+
+/* ===================================================================
+   SIDEBAR (Find an Article, Quick Links, Newsletter)
+   =================================================================== */
+
+.blog-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebar-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.sidebar-card h4 {
+  font-size: 1.3rem;
+  margin: 0 0 1rem;
+  color: var(--color-dark-slate);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Icon sizing used in those h4s */
+.sidebar-card h4 .icon { width: 30px; height: 30px; }
+.sidebar-card h4 .icon-larger { width: 38px; height: 38px; }
+
+/* Form controls (you asked to remove the extra bottom margin to
+   match newsletter spacing, so no margin-bottom here) */
+.sidebar-card .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-card .form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.sidebar-card input,
+.sidebar-card select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.sidebar-search-button { width: 100%; }
+
+.sidebar-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-card ul li a {
+  color: var(--color-dark-slate);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  display: block;
+  border-bottom: 1px solid #eee;
+  transition: color 0.2s ease;
+}
+
+.sidebar-card ul li a:hover { color: var(--color-maroon); }
+.sidebar-card ul li:last-child a { border-bottom: none; }
+
+.sidebar-card .button-primary { width: 100%; margin-top: 0.5rem; }
+
+/* ===================================================================
+   RELATED ARTICLES (IN MAIN COLUMN, BELOW ARTICLE)
+   =================================================================== */
+
+.related-posts { padding-bottom: 6rem; }
+.related-posts h2 {
+  font-size: 2rem;
+  margin: 0 0 2rem;
+  color: var(--color-dark-slate);
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+/* Two-up grid on desktop; auto-stacks on mobile */
+.related-posts .article-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .related-posts .article-card-grid { grid-template-columns: 1fr; }
+}
+
+/* Card look (shared with index so we keep it here, trimmed) */
+.article-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.post-thumbnail img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.article-card .post-content {
+  padding: 1rem 1.25rem;  /* tighter internals for related */
+  display: flex;
+  flex-direction: column;
+}
+
+.article-card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.1rem;
+}
+
+.article-card .post-meta {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Slightly smaller tag pills inside related cards */
+.related-posts .tag-pill { font-size: 0.75rem; padding: 0.15rem 0.5rem; }
+/* === Match the blog index width on post pages === */
+.blog-post-content .container,
+.related-posts .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Optional: give the post page the same section padding/bg as the index */
+.blog-post-content {
+  background-color: #f8f9fa;
+  display: flow-root;  
+}
+
+/* Keep the 70/30 split consistent at desktop sizes */
+@media (min-width: 992px) {
+  .blog-post-main-content {
+    grid-template-columns: minmax(0, 1fr) 350px;  /* ~70/30 */
+    align-items: start;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .blog-post-main-content {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    align-items: start;
+  }
+}
+
+/* Prevent any grid child from overflowing its track */
+.blog-post-main-content > .blog-main-content,
+.blog-post-main-content > .blog-sidebar {
+  min-width: 0;
+}
+
+/* Already responsive, but if hero images feel huge on ultra-wide, use this optional cap: */
+/* .article-hero-image { max-height: 560px; width: 100%; object-fit: cover; } */
