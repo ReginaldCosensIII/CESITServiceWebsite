@@ -610,8 +610,8 @@ a:hover { color: var(--color-dark-slate); text-decoration: underline; }
   color: #0b1220;
   padding: clamp(1.25rem, 1.5vw + 1rem, 2rem);
   border-radius: 18px;
-  background: rgba(255,255,255,0.22);
-  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255, 255, 255, 0.32);
+  border: 1px solid rgba(255,255,255,0.30);
   box-shadow: 0 10px 30px rgba(0,0,0,0.20), inset 0 1px 0 rgba(255,255,255,0.35);
   backdrop-filter: blur(10px) saturate(120%);
   -webkit-backdrop-filter: blur(10px) saturate(120%);
@@ -630,14 +630,16 @@ a:hover { color: var(--color-dark-slate); text-decoration: underline; }
   border-radius: inherit;
   content: ""; position: absolute;
   border-top-left-radius: 12px; border-bottom-left-radius: 12px;
-  background: linear-gradient(180deg, rgba(133,204,170,0.85), rgba(133,204,170,0.45));
+  background: linear-gradient(180deg, rgba(133,204,170,1), rgba(133,204,170,1));
   box-shadow: 0 0 18px rgba(133,204,170,0.45);
 }
 
 .hero__headline {
   margin: 0 0 0.4rem 0;
   font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.2rem);
-  line-height: 1.28; color: #0b1220;
+  line-height: 1.28; 
+  color: #000000; /* A subtle, clean cream color */
+  font-weight: 700;
   text-wrap: balance;
 }
 .hero__sub {
